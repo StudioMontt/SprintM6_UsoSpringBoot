@@ -12,26 +12,40 @@ public class Liquidacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_liquidacion")
     private int idLiquidacion;
+
     @Column(name = "id_trabajador")
-    private int idTrabajador;
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Trabajador trabajador;
+
     @Column
     private LocalDate periodo;
+
     @Column(name = "sueldo_imponible")
     private int sueldoImponible;
+
     @Column(name = "sueldo_liquido")
     private int sueldoLiquido;
+
     @Column(name = "id_inst_salud")
-    private int idSalud;
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private InstSalud salud;
+
     @Column(name = "monto_inst_salud")
     private int dctoSalud;
+
     @Column(name = "id_inst_prevision")
-    private int idPrevision;
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private InstPrevision prevision;
+
     @Column(name = "monto_inst_prevision")
     private int dctoPrevision;
+
     @Column(name = "total_descuento")
     private int totalDescuento;
+
     @Column(name = "total_haberes")
     private int totalHaberes;
+
     @Column
     private int anticipo;
 }

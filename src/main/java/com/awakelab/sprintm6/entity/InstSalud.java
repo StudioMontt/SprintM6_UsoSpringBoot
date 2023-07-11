@@ -3,6 +3,8 @@ package com.awakelab.sprintm6.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "institucion_salud")
@@ -11,8 +13,17 @@ public class InstSalud {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_int_salud")
     private int idSalud;
+
     @Column
     private String descripcion;
+
     @Column(name = "porc_dcto")
     private float porcDctoSalud;
+
+    @OneToMany(mappedBy = "institucion_salud")
+    private List<Trabajador> listTrabajadores;
+
+    @OneToMany(mappedBy = "institucion_salud")
+    private List<Liquidacion> listLiquidaciones;
+
 }

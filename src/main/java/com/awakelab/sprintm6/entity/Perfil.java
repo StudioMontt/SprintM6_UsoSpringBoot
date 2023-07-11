@@ -2,6 +2,7 @@ package com.awakelab.sprintm6.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.List;
 
 @Data
 @Entity
@@ -11,8 +12,13 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_perfil")
     private int idPerfil;
+
     @Column
     private String descripcion;
+
     @Column
     private boolean estado;
+
+    @OneToMany(mappedBy = "perfil")
+    private List<Usuario> listaUsuarios;
 }
