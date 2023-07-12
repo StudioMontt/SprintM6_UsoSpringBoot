@@ -20,10 +20,10 @@ public class InstSalud {
     @Column(name = "porc_dcto")
     private float porcDctoSalud;
 
-    @OneToMany(mappedBy = "institucion_salud")
+    @OneToMany(mappedBy = "salud")
     private List<Trabajador> listTrabajadores;
 
-    @OneToMany(mappedBy = "institucion_salud")
+    @OneToMany(mappedBy = "salud")
     private List<Liquidacion> listLiquidaciones;
 
 }

@@ -19,9 +19,9 @@ public class InstPrevision {
     @Column(name = "porc_dcto")
     private float porcDctoPrev;
 
-    @OneToMany(mappedBy = "institucion_prevision")
+    @OneToMany(mappedBy = "prevision")
     private List<Trabajador> listTrabajadores;
 
-    @OneToMany(mappedBy = "institucion_prevision")
+    @OneToMany(mappedBy = "prevision")
     private List<Liquidacion> listLiquidaciones;
 }

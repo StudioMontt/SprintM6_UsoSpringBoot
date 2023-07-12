@@ -13,7 +13,7 @@ public class Liquidacion {
     @Column(name = "id_liquidacion")
     private int idLiquidacion;
 
-    @Column(name = "id_trabajador")
+    @JoinColumn(name = "id_trabajador")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Trabajador trabajador;
 
@@ -26,14 +26,14 @@ public class Liquidacion {
     @Column(name = "sueldo_liquido")
     private int sueldoLiquido;
 
-    @Column(name = "id_inst_salud")
+    @JoinColumn(name = "id_inst_salud")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private InstSalud salud;
 
     @Column(name = "monto_inst_salud")
     private int dctoSalud;
 
-    @Column(name = "id_inst_prevision")
+    @JoinColumn(name = "id_inst_prevision")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private InstPrevision prevision;
 

@@ -27,7 +27,7 @@ public class Usuario {
     @Column(name = "apellido_2")
     private String apellido2;
 
-    @Column(name = "id_perfil")
+    @JoinColumn(name = "id_perfil")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Perfil perfil;
 

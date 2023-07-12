@@ -29,11 +29,11 @@ public class Trabajador {
     @Column
     private String email;
 
-    @Column(name = "id_inst_prevision")
+    @JoinColumn(name = "id_inst_prevision")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private InstPrevision prevision;
 
-    @Column(name = "id_inst_salud")
+    @JoinColumn(name = "id_inst_salud")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private InstSalud salud;
 
