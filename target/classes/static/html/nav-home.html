@@ -1,14 +1,35 @@
-<nav>
-    <div class="logo">
-        <a href="#">
-            <img alt="logo" src="#" />
-        </a>
-    </div>
-    <div class="">
-        <a href="#">Home</a>
-        <a href="#">Registrarse</a>
-        <a href="#">
-            <button type="submit">Iniciar Sesión</button>
-        </a>
-    </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">
+				<img alt="logo" src="#" />
+			</a>
+		</div>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-toggle="collapse"
+			data-target="#navbarNav"
+			aria-controls="navbarNav"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav ml-auto align-items-center">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="inicio/registrarse">Registrar</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/login"
+						><button type="submit" class="btn btn-primary">Iniciar Sesión</button></a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
 </nav>

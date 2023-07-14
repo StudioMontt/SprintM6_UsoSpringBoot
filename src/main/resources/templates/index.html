@@ -1,75 +1,59 @@
 <!DOCTYPE html>
-<html lang="es">
-	<!-- <head th:include="~{../static/html/head.html}"></head> -->
-
-	<head>
-		<meta charset="UTF-8" />
-		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@100;300&display=swap"
-			rel="stylesheet"
-		/>
-		<link href="/css/style.css" />
-
-		<title>Home</title>
-	</head>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Home</title>
 
 	<body>
-		<!-- <header th:include="~{../static/html/nav-home.html}"></header> -->
 		<header>
-			<nav>
-				<div class="logo">
-					<a href="#">
-						<img alt="logo" src="#" />
-					</a>
-				</div>
-				<div class="">
-					<a href="#">Home</a>
-					<a href="#">Registrarse</a>
-					<a href="#">
-						<button type="submit">Iniciar Sesión</button>
-					</a>
-				</div>
-			</nav>
+			<nav th:include="~{../static/html/nav-home.html}"></nav>
 		</header>
 
-		<section>
-			<h1>Liquidaciones de Sueldo Para Trabajadores de Casa</h1>
-			<p>
-				Podrás crear liquidaciones de sueldo para tus trabajadores de casa particular, y si
-				eres Contador, podrás agregar a tus empleadores/clientes y manejar a sus trabajadores
-				y liquidaciones.
-			</p>
-			<a href="#">
-				<button type="submit">Iniciar Sesión</button>
-			</a>
-			<a href="#">
-				<button type="submit">Registrarse</button>
-			</a>
+		<section class="bg-light py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 mx-auto text-center">
+						<h1 class="mb-4">Liquidaciones de Sueldo para Trabajadores de Casa</h1>
+						<p class="lead mb-5">
+							Podrás crear liquidaciones de sueldo para tus trabajadores de casa particular, y si
+							eres Contador, podrás agregar a tus empleadores/clientes y manejar a sus
+							trabajadores y liquidaciones.
+						</p>
+						<div class="d-flex justify-content-center">
+							<a href="/login" class="btn btn-primary me-3">Iniciar Sesión</a>
+							<a href="inicio/registrarse" class="btn btn-secondary">Registrarse</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-		<form>
-			<h2>Contacto</h2>
-			<label for="nombre">Nombre:</label>
-			<input type="text" id="nombre" name="nombre" required />
 
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" required />
+		<section class="py-5">
+			<div class="container">
+				<!-- Aquí va el contenido de la segunda sección -->
+			</div>
+		</section>
 
-			<label for="mensaje">Mensaje:</label>
-			<textarea id="mensaje" name="mensaje" required></textarea>
+		<section class="py-5">
+			<div class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+				<form>
+					<h2>Contacto</h2>
+					<div class="mb-3">
+						<label for="nombre" class="form-label">Nombre:</label>
+						<input type="text" id="nombre" name="nombre" class="form-control" required />
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label">Email:</label>
+						<input type="email" id="email" name="email" class="form-control" required />
+					</div>
+					<div class="mb-3">
+						<label for="mensaje" class="form-label">Mensaje:</label>
+						<textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			</div>
+		</section>
 
-			<button type="submit">Enviar</button>
-		</form>
+		<footer th:include="~{../static/html/footer.html}"></footer>
 	</body>
-	<!-- <footer th:include="~{../static/html/footer.html}"></footer> -->
-	<footer>
-		<h1>Sprint Módulo 6</h1>
-		<a href="#">
-			<img alt="github" src="#" />
-		</a>
-		<p>&copy BootcampJava2023 - Gustavo Vargas P.</p>
-	</footer>
 </html>

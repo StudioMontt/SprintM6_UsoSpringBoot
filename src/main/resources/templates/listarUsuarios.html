@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Listado de Usuarios</title>
+
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-home.html}"></nav>
+		</header>
+
+		<section class="container">
+			<h2>Listado de Usuarios</h2>
+			<table class="Table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Run</th>
+						<th>Perfil</th>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th>Email</th>
+						<th>Teléfono</th>
+						<th>Fecha Creación</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usuario: ${usuario}">
+						<td th:text="${usuario.idUsuario}"></td>
+						<td th:text="${usuario.run}"></td>
+						<td th:text="${usuario.Perfil.descripcion}"></td>
+						<td th:text="${usuario.nombre}"></td>
+						<td th:text="${usuario.apellido1}"></td>
+						<td th:text="${usuario.apellido2}"></td>
+						<td th:text="${usuario.email}"></td>
+						<td th:text="${usuario.telefono}"></td>
+						<td th:text="${usuario.fechaCreacion}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
+</html>

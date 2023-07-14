@@ -1,33 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
-			rel="stylesheet"
-		/>
-
-		<title>Login</title>
-	</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Login</title>
 
 	<body>
-		<!-- <header th:include="~{../static/html/header.html}"></header> -->
+		<header>
+			<nav th:include="~{../static/html/nav-home.html}"></nav>
+		</header>
 
-		<form>
-			<label for="run">RUN:</label>
-			<input type="text" id="run" name="run" required />
-
-			<label for="clave">Clave:</label>
-			<input type="password" id="clave" name="clave" required />
-
-			<a href="#">¿Olvidaste tu clave?</a>
-
-			<button type="submit">Iniciar sesión</button>
-		</form>
-
-		<a href="#">Registrarse</a>
+		<section class="container mt-4 row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Inicio Sesión</h2>
+			<form th:action="@{/usuario/loguearse}" method="POST">
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">Run</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						name="run"
+						required
+						placeholder="Sólo números, sin digito verificador"
+					/>
+				</div>
+				<div class="form-group mb-3">
+					<label for="clave" class="form-label">Clave</label>
+					<input
+						type="password"
+						class="form-control"
+						id="clave"
+						name="clave"
+						required
+						placeholder="Password"
+					/>
+				</div>
+				<div class="m-3 text-end">
+					<a href="#">¿Olvidaste tu clave?</a>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+				</div>
+				<div class="m-3">
+					<a href="#">Registrarse</a>
+				</div>
+			</form>
+		</section>
 	</body>
-	<!-- <footer th:include="~{../static/html/footer.html}"></footer> -->
+	<footer th:include="~{../static/html/footer.html}"></footer>
 </html>
