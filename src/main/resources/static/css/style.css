@@ -7,10 +7,27 @@ a {
 	color: black;
 }
 
+.h-min {
+	height: 77px;
+}
+
 .row {
-    margin: auto;
+	margin: auto;
 }
 
 h2 {
-    padding: 5vh;
+	padding: 5vh;
+}
+
+.icon-gh {
+	transform: scale(2);
+	transform-origin: center;
+	margin: 5px;
+}
+.logo-icon{
+	max-width: 50px;
+}
+footer {
+	color: aliceblue;
+	background: url(../img/bg.jpg);
 }

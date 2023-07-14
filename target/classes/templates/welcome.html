@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<title>Title</title>
 	<head th:include="~{../static/html/head.html}"></head>
+	<title>Bienvenida</title>
 
 	<body>
 		<header>
 			<nav th:include="~{../static/html/nav-bar.html}"></nav>
 		</header>
 
-		<h1>Bienvenido</h1>
-		<h2>¿Qué desea hacer?</h2>
-		<section>
-			<div><a href="#">Crear Usuario</a></div>
-			<div><a href="#">Crear Empleador</a></div>
-			<div><a href="#">Crear Trabajador</a></div>
-			<div><a href="#">Crear Liquidación</a></div>
-			<div><a href="#">Ver y/o editar usuarios</a></div>
-			<div><a href="#">Ver y/o editar empleadores</a></div>
-			<div><a href="#">Ver y/o editar trabajadores</a></div>
-			<div><a href="#">Ver y/o editar liquidaciones</a></div>
-		</section>
+		<main class="container">
+			<h2>Bienvenido</h2>
+			<h4>¿Qué desea hacer?</h4>
+			<section>
+				<div class="row">
+					<div class="col-md-6 col-lg-3">
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min">Crear Usuario</a>
+						</div>
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min">Ver y/o Editar Usuarios</a>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min">Crear Empleador</a>
+						</div>
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min"
+								>Ver y/o Editar Empleadores</a
+							>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min">Crear Trabajador</a>
+						</div>
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min"
+								>Ver y/o Editar Trabajadores</a
+							>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min">Crear Liquidación</a>
+						</div>
+						<div class="mb-3">
+							<a href="#" class="btn btn-primary btn-lg w-100 h-min"
+								>Ver y/o Editar Liquidaciones</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 	</body>
-	<!-- <footer th:include="~{../static/html/footer.html}"></footer> -->
+
+	<footer th:include="~{../static/html/footer.html}"></footer>
 </html>

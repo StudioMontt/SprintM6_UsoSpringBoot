@@ -22,13 +22,14 @@ public class UsuarioRestController {
     public ResponseEntity<?> crearUsuario(@RequestBody UsuarioRequest usuario){
         Perfil perfil= objPerfilService.buscarPerfilPorId(usuario.getPerfil());
         Usuario usuarioNuevo = new Usuario();
+        usuarioNuevo.setRun(usuario.getRun());
         usuarioNuevo.setClave(usuario.getClave());
-        usuarioNuevo.setEmail(usuario.getEmail());
         usuarioNuevo.setNombre(usuario.getNombre());
         usuarioNuevo.setApellido1(usuario.getApellido1());
         usuarioNuevo.setApellido2(usuario.getApellido2());
-        usuarioNuevo.setTelefono(usuarioNuevo.getTelefono());
         usuarioNuevo.setPerfil(perfil);
+        usuarioNuevo.setEmail(usuario.getEmail());
+        usuarioNuevo.setTelefono(usuarioNuevo.getTelefono());
         objUsuarioService.crearUsuario(usuarioNuevo);
         return ResponseEntity.ok("Usuario creado");
     }
