@@ -20,7 +20,7 @@
 						</p>
 						<div class="d-flex justify-content-center">
 							<a href="/login" class="btn btn-primary me-3">Iniciar Sesión</a>
-							<a href="inicio/registrarse" class="btn btn-secondary">Registrarse</a>
+							<a href="/usuario/registro" class="btn btn-secondary">Registrarse</a>
 						</div>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 
 		<section class="py-5">
 			<div class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-				<form>
+				<form th:action="@{/contacto}" method="GET">
 					<h2>Contacto</h2>
 					<div class="mb-3">
 						<label for="nombre" class="form-label">Nombre:</label>

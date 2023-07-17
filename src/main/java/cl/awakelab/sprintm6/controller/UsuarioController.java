@@ -10,49 +10,63 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/inicio")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
     IUsuarioService objUsuarioService;
-    @PostMapping("/registrarse")
-    public String crearUsuario(@ModelAttribute Usuario usuario){
-        objUsuarioService.crearUsuario(usuario);
-        return "redirect:/usuario";
-    }
-    @GetMapping("/registrarse")
-    public String mostrarFormularioCrearUsuario(Model model){
-        return "registrarse";
-    }
-    @GetMapping("/{idUsuario}")
-    public String listarUsuarioPorId(@PathVariable int idUsuario, Model model){
-        Usuario usuario = objUsuarioService.buscarUsuarioPorId(idUsuario);
-        model.addAttribute("usuario", usuario);
-        return "usuario";
-    }
+
+    //MUESTRA EL LISTADO
     @GetMapping
     public String listarUsuarios(Model model){
         List<Usuario> listaUsuarios = objUsuarioService.listarUsuarios();
         model.addAttribute("usuario", listaUsuarios);
-        return "listarUsuarios";
+        return "listUsers";
     }
-    @GetMapping("/{idUsuario}/editar")
+
+    //MUESTRA FORMULARIO DE GUARDAR
+    @GetMapping("/mostrarCrear")
+    public String mostrarFormularioCrearUsuario(Model model){
+        Usuario usuario = new Usuario();
+        model.addAttribute("usuario", usuario);
+        return "createUser";
+    }
+
+    //GUARDA Y REDIRIGE AL LISTADO
+    @PostMapping("/crearUsuario")
+    public String crearUsuario(@ModelAttribute Usuario usuario){
+        objUsuarioService.crearUsuario(usuario);
+        return "redirect:/usuario";
+    }
+
+    //MUESTRA FORMULARIO DE EDITAR
+    @GetMapping("/editar/{idUsuario}")
     public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model){
         Usuario usuarioParaEditar = objUsuarioService.buscarUsuarioPorId(idUsuario);
         model.addAttribute("usuario", usuarioParaEditar);
-        return "editarUsuario";
+        return "editUser";
     }
 
-    @GetMapping("/{idUsuario}/eliminar")
+    //ACTUALIZAR Y REDIRIGE A LISTADO
+    @PutMapping("/{idUsuario}")
+    public String listarUsuarioPorId(@PathVariable int idUsuario, Model model){
+        Usuario usuario = objUsuarioService.buscarUsuarioPorId(idUsuario);
+        model.addAttribute("usuario", usuario);
+        return "redirect:/usuario";
+    }
+/*
+    //MUESTRA PAGINA DE ELIMINAR (ES NECESARIO?)
+    @GetMapping("/eliminar/{idUsuario}")
     public String mostrarEliminarUsuario(@PathVariable int idUsuario, Model model){
         Usuario usuarioEliminar = objUsuarioService.buscarUsuarioPorId(idUsuario);
         model.addAttribute("usuario", usuarioEliminar);
         return "eliminarUsuario";
     }
 
-    @DeleteMapping("/{idUsuario}")
-    public String eliminarUsuario(@PathVariable int idUsuario){
+    //ELIMINAR Y REDIRIGIR A LISTADO
+    @RequestMapping(value = "/{idUsuario}", method = {RequestMethod.DELETE, RequestMethod.POST})
+    public String eliminarUsuario(@PathVariable("idUsuario") int idUsuario){
         objUsuarioService.eliminarUsuario(idUsuario);
-        return "redirect: /usuario";
-    }
+        return "redirect:/usuario";
+    }*/
 }

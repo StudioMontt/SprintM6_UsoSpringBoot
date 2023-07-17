@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head th:include="~{../static/html/head.html}"></head>
-	<title>Crear Usuario</title>
+	<title>Registro</title>
 
 	<body>
 		<header>
@@ -9,8 +9,8 @@
 		</header>
 
 		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-			<h2>Crear Usuario</h2>
-			<form th:action="@{/usuario/registrarse}" method="POST">
+			<h2>Registro de Usuario</h2>
+			<form th:action="@{/usuario/registro}" method="POST">
 				<div class="mb-3">
 					<label for="run" class="form-label">Run:</label>
 					<input
@@ -45,60 +45,60 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label for="apellido2" class="form-label">Segundo Apellido:</label>
-					<input
-						type="text"
-						class="form-control"
-						id="apellido2"
-						name="apellido2"
-						placeholder="Ingrese su segundo apellido (opcional)"
-					/>
-				</div>
-				<div class="mb-3">
 					<label for="email" class="form-label">Email:</label>
 					<input
-						type="text"
-						class="form-control"
-						id="email"
-						name="email"
-						required
-						placeholder="email@servidor.cl"
+							type="text"
+							class="form-control"
+							id="email"
+							name="email"
+							required
+							placeholder="email@servidor.cl"
 					/>
 				</div>
 				<div class="mb-3">
-					<label for="telefono" class="form-label">Teléfono:</label>
-					<input
-						type="number"
+				<label for="clave" class="form-label">Password:</label>
+				<input
+						type="password"
 						class="form-control"
-						id="telefono"
-						name="telefono"
+						id="clave"
+						name="clave"
 						required
-						placeholder="56987654321"
-					/>
-				</div>
+						placeholder=""
+				/>
+			</div>
 				<div class="mb-3">
 					<label class="form-label">Perfil de Usuario</label>
 					<div class="row">
-						<div class="form-check col-md-6">
+						<div class="col-md-2"></div>
+						<div class="form-check col-md-4">
 							<input
 								class="form-check-input"
 								type="radio"
 								name="perfil"
 								id="empleador"
+								value="2"
 								checked
 							/>
 							<label class="form-check-label" for="empleador"> Empleador </label>
 						</div>
-						<div class="form-check col-md-6">
-							<input class="form-check-input" type="radio" name="perfil" id="contador" />
+						<div class="form-check col-md-4">
+							<input
+									class="form-check-input"
+									type="radio"
+									name="perfil"
+									id="contador"
+									value="3"
+							/>
 							<label class="form-check-label" for="contador"> Contador </label>
 						</div>
+						<div class="col-md-2"></div>
 					</div>
 				</div>
-				<div class="text-center">
+				<div class="text-center m-5">
 					<button type="submit" class="btn btn-primary">Crear Usuario</button>
 				</div>
 
+<!--
 				<script>
 					document.querySelector('form').addEventListener('submit', function () {
 						const fechaCreacion = new Date().toISOString();
@@ -109,6 +109,7 @@
 						this.appendChild(fechaInput);
 					});
 				</script>
+-->
 			</form>
 		</section>
 
