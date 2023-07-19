@@ -19,27 +19,25 @@ h2 {
 	padding: 5vh;
 }
 
-.centerButton{
+.centerButton {
 	text-align: center;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
-input[type=number] {
+input[type='number'] {
 	-moz-appearance: textfield;
 }
-
-
 
 .icon-gh {
 	transform: scale(2);
 	transform-origin: center;
 	margin: 5px;
 }
-.logo-icon{
+.logo-icon {
 	max-width: 50px;
 }
 footer {

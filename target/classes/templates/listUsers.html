@@ -11,47 +11,64 @@
 		<section class="container">
 			<h2>Listado de Usuarios</h2>
 			<div class="centerButton">
-			<a href="/usuario/mostrarCrear" class="btn btn-primary text-align m-1">Crear nuevo Usuario</a></div>
+				<a href="/usuario/mostrarCrear" class="btn btn-primary text-align m-1"
+					>Crear nuevo Usuario</a
+				>
+			</div>
 			<table class="table table-striped table-bordered">
-			  <thead>
-				<tr>
-				  <th>ID</th>
-				  <th>Run</th>
-				  <th>Perfil</th>
-				  <th>Nombre</th>
-				  <th>Primer Apellido</th>
-				  <th>Segundo Apellido</th>
-				  <th>Email</th>
-				  <th>Teléfono</th>
-					<th>Fecha Creación</th>
-					<th>Acción</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr th:each="usuario: ${usuario}">
-				  <td th:text="${usuario.idUsuario}"></td>
-				  <td th:text="${usuario.run}"></td>
-				  <td th:text="${usuario.Perfil.descripcion}"></td>
-				  <td th:text="${usuario.nombre}"></td>
-				  <td th:text="${usuario.apellido1}"></td>
-				  <td th:text="${usuario.apellido2}"></td>
-				  <td th:text="${usuario.email}"></td>
-				  <td th:text="${usuario.telefono}"></td>
-					<td th:text="${usuario.fechaCreacion}"></td>
-					<td class="align-middle d-flex">
-						<form class="m-2" th:action="@{/usuario/editar/{idUsuario}(idUsuario=${usuario.idUsuario})}" method="GET"> <!-- ir a actualizar -->
-							<button type="submit" class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
-						</form>
-						<form class="m-2" th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}" method="POST"><!--eliminar-->
-<!--							<input type="hidden" name="_method" value="DELETE">-->
-							<button type="submit" class="btn btn-danger" name="eliminar" value="Eliminar"><i class="bi bi-trash"></i></button>
-						</form>
-					</td>
-				</tr>
-			  </tbody>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Run</th>
+						<th>Perfil</th>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th>Email</th>
+						<th>Teléfono</th>
+						<th>Fecha Creación</th>
+						<th>Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usuario: ${usuario}">
+						<td th:text="${usuario.idUsuario}"></td>
+						<td th:text="${usuario.run}"></td>
+						<td th:text="${usuario.Perfil.descripcion}"></td>
+						<td th:text="${usuario.nombre}"></td>
+						<td th:text="${usuario.apellido1}"></td>
+						<td th:text="${usuario.apellido2}"></td>
+						<td th:text="${usuario.email}"></td>
+						<td th:text="${usuario.telefono}"></td>
+						<td th:text="${usuario.fechaCreacion}"></td>
+						<td class="align-middle d-flex">
+							<form
+								class="m-2"
+								th:action="@{/usuario/editar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
+								method="GET"
+							>
+								<!-- ir a actualizar -->
+								<button type="submit" class="btn btn-success">
+									<i class="bi bi-pencil-square"></i>
+								</button>
+							</form>
+							<form
+								class="m-2"
+								th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
+								method="POST"
+							>
+								<!--eliminar-->
+								<!--							<input type="hidden" name="_method" value="DELETE">-->
+								<button type="submit" class="btn btn-danger" name="eliminar" value="Eliminar">
+									<i class="bi bi-trash"></i>
+								</button>
+							</form>
+						</td>
+					</tr>
+				</tbody>
 			</table>
-		  </section>
-		  
+		</section>
+
 		<footer th:include="~{../static/html/footer.html}"></footer>
 	</body>
 </html>

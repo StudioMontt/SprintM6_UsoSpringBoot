@@ -1,124 +1,124 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head th:include="~{../static/html/head.html}"></head>
-<title>Crear Usuario</title>
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Crear Usuario</title>
 
-<body>
-<header>
-    <nav th:include="~{../static/html/nav-bar.html}"></nav>
-</header>
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
 
-<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-    <h2>Crear Usuario</h2>
-    <form th:action="@{/usuario/crearUsuario}" th:object="${usuario}" method="POST">
-        <div class="form-group mb-3">
-            <label for="run" class="form-label">Run:</label>
-            <input
-                    type="number"
-                    class="form-control"
-                    id="run"
-                    th:field="*{run}"
-                    required
-                    placeholder="Sólo números, sin digito verificador"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre:</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    id="nombre"
-                    th:field="*{nombre}"
-                    required
-                    placeholder="Indique su nombre"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="apellido1" class="form-label">Primer Apellido:</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    id="apellido1"
-                    th:field="*{apellido1}"
-                    required
-                    placeholder="Ingrese su primer apellido"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="apellido2" class="form-label">Segundo Apellido:</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    id="apellido2"
-                    th:field="*{apellido2}"
-                    placeholder="Ingrese su segundo apellido (opcional)"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    th:field="*{email}"
-                    required
-                    placeholder="email@servidor.cl"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="telefono" class="form-label">Teléfono:</label>
-            <input
-                    type="number"
-                    class="form-control"
-                    id="telefono"
-                    th:field="*{telefono}"
-                    required
-                    placeholder="56987654321"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="clave" class="form-label">Password:</label>
-            <input
-                    type="password"
-                    class="form-control"
-                    id="clave"
-                    th:field="*{clave}"
-                    required
-                    placeholder=""
-            />
-        </div>
-        <div class="row mb-3">
-            <label class="form-label">Perfil de Usuario</label>
-            <div class="col-md-2"></div>
-            <div class="form-check col-md-4">
-                <input
-                        class="form-check-input"
-                        type="radio"
-                        th:field="*{perfil}"
-                        id="empleador"
-                        th:value="3"
-                        checked
-                />
-                <label class="form-check-label" for="empleador"> Empleador </label>
-            </div>
-            <div class="form-check col-md-4">
-                <input
-                        class="form-check-input"
-                        type="radio"
-                        th:field="*{perfil}"
-                        id="contador"
-                        th:value="2"
-                />
-                <label class="form-check-label" for="contador"> Contador </label>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-        <div class="text-center" m-5>
-            <button type="submit" class="btn btn-primary">Crear Usuario</button>
-        </div>
-    </form>
-</section>
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Crear Usuario</h2>
+			<form th:action="@{/usuario/crearUsuario}" th:object="${usuario}" method="POST">
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">Run:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						th:field="*{run}"
+						required
+						placeholder="Sólo números, sin digito verificador"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="nombre"
+						th:field="*{nombre}"
+						required
+						placeholder="Indique su nombre"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido1" class="form-label">Primer Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido1"
+						th:field="*{apellido1}"
+						required
+						placeholder="Ingrese su primer apellido"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido2" class="form-label">Segundo Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido2"
+						th:field="*{apellido2}"
+						placeholder="Ingrese su segundo apellido (opcional)"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="email"
+						th:field="*{email}"
+						required
+						placeholder="email@servidor.cl"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="telefono"
+						th:field="*{telefono}"
+						required
+						placeholder="56987654321"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="clave" class="form-label">Password:</label>
+					<input
+						type="password"
+						class="form-control"
+						id="clave"
+						th:field="*{clave}"
+						required
+						placeholder=""
+					/>
+				</div>
+				<div class="row mb-3">
+					<label class="form-label">Perfil de Usuario</label>
+					<div class="col-md-2"></div>
+					<div class="form-check col-md-4">
+						<input
+							class="form-check-input"
+							type="radio"
+							th:field="*{perfil}"
+							id="empleador"
+							th:value="3"
+							checked
+						/>
+						<label class="form-check-label" for="empleador"> Empleador </label>
+					</div>
+					<div class="form-check col-md-4">
+						<input
+							class="form-check-input"
+							type="radio"
+							th:field="*{perfil}"
+							id="contador"
+							th:value="2"
+						/>
+						<label class="form-check-label" for="contador"> Contador </label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<div class="text-center" m-5>
+					<button type="submit" class="btn btn-primary">Crear Usuario</button>
+				</div>
+			</form>
+		</section>
 
-<footer th:include="~{../static/html/footer.html}"></footer>
-</body>
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
 </html>
