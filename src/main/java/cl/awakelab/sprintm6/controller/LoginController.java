@@ -9,4 +9,10 @@ public class LoginController {
         public String index(){
             return "login";
         }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
 }

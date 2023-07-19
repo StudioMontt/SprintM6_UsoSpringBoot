@@ -14,10 +14,10 @@ public class InstSalud {
     @Column(name = "id_int_salud")
     private int idSalud;
 
-    @Column
+    @Column(length = 50, nullable = false)
     private String descripcion;
 
-    @Column(name = "porc_dcto")
+    @Column(name = "porc_dcto", nullable = false)
     private float porcDctoSalud;
 
     @OneToMany(mappedBy = "salud")

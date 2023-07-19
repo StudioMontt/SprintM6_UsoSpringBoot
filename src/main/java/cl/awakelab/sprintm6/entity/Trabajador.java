@@ -14,19 +14,19 @@ public class Trabajador {
     @Column(name = "id_trabajador")
     private int idTrabajador;
 
-    @Column
+    @Column(unique = true, nullable = true)
     private int run;
 
-    @Column
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(name = "apellido_1")
+    @Column(name = "apellido_1", length = 100, nullable = false)
     private String apellido1;
 
-    @Column(name = "apellido_2")
+    @Column(name = "apellido_2", length = 100)
     private String apellido2;
 
-    @Column
+    @Column(length = 100)
     private String email;
 
     @JoinColumn(name = "id_inst_prevision")
@@ -37,7 +37,7 @@ public class Trabajador {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private InstSalud salud;
 
-    @Column
+    @Column(nullable = false)
     private int telefono;
 
     @OneToMany(mappedBy = "trabajador")

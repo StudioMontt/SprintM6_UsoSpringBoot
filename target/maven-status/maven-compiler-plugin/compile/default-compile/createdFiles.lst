@@ -1,9 +1,0 @@
-com\awakelab\sprintm6\entity\InstPrevision.class
-com\awakelab\sprintm6\entity\Perfil.class
-com\awakelab\sprintm6\entity\Usuario.class
-com\awakelab\sprintm6\entity\Empleador.class
-com\awakelab\sprintm6\entity\InstSalud.class
-com\awakelab\sprintm6\entity\Liquidacion.class
-com\awakelab\sprintm6\SprintM6Application.class
-com\awakelab\sprintm6\entity\Trabajador.class
-com\awakelab\sprintm6\controller\InicioController.class

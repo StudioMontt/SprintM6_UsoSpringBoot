@@ -13,37 +13,41 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @Column(name = "id_usuario", nullable = false)
     private int idUsuario;
 
-    @Column
+    @Column(unique = true, nullable = false)
     private int run;
 
-    @Column
+    @Column(length = 100, nullable = false)
     private String clave;
 
-    @Column
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(name = "apellido_1")
+    @Column(name = "apellido_1", length = 100, nullable = false)
     private String apellido1;
 
-    @Column(name = "apellido_2")
+    @Column(name = "apellido_2", length = 100)
     private String apellido2;
 
     @JoinColumn(name = "id_perfil")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JsonIgnore
     private Perfil perfil;
+/*
+    @Transient
+    private int idPerfilSeleccionado;
+*/
 
-    @Column
+    @Column(length = 100, nullable = false)
     private String email;
 
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
 
     @Column
-    private int telefono;
+    private long telefono;
 
     @OneToMany(mappedBy = "usuario")
     private List<Empleador> listaEmpleadores;

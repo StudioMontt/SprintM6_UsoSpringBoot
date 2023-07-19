@@ -13,10 +13,10 @@ public class InstPrevision {
     @Column(name = "id_int_prevision")
     private int idPrevision;
 
-    @Column
+    @Column(length = 50, nullable = false)
     private String descripcion;
 
-    @Column(name = "porc_dcto")
+    @Column(name = "porc_dcto", nullable = false)
     private float porcDctoPrev;
 
     @OneToMany(mappedBy = "prevision")

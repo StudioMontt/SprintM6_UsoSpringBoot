@@ -11,25 +11,25 @@ import java.util.List;
 public class Empleador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_empleador")
+    @Column(name = "id_empleador", nullable = false)
     private int idEmpleador;
 
-    @Column
+    @Column(unique = true, nullable = false)
     private int run;
 
-    @Column
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(name = "apellido_1")
+    @Column(name = "apellido_1", length = 100, nullable = false)
     private String apellido1;
 
-    @Column(name = "apellido_2")
+    @Column(name = "apellido_2", length = 100)
     private String apellido2;
 
     @Column
     private String direccion;
 
-    @Column
+    @Column(length = 100)
     private String email;
 
     @JoinColumn(name = "id_usuario")
@@ -37,7 +37,7 @@ public class Empleador {
     private Usuario usuario;
 
     @Column
-    private int telefono;
+    private long telefono;
 
     @ManyToMany(mappedBy = "listaEmpleadores")
     private List<Trabajador> listaTrabajadores;

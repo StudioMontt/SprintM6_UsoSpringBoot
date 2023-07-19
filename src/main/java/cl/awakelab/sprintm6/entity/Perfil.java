@@ -15,15 +15,15 @@ public class Perfil {
     @Column(name = "id_perfil")
     private int idPerfil;
 
-    @Column
+    @Column(length = 50)
     private String descripcion;
 
     @Column
-    private boolean estado;
+    private Boolean estado;
 
-    public boolean getEstado() {
-        return estado;
-    }
+//    public boolean getEstado() {
+//        return estado;
+//    }
 
     @OneToMany(mappedBy = "perfil")
     private List<Usuario> listaUsuarios;
