@@ -4,7 +4,7 @@ import cl.awakelab.sprintm6.entity.Empleador;
 import java.util.List;
 
 public interface IEmpleadorService {
-    List<Empleador> listarUsuarios ();
+    List<Empleador> listarEmpleadores ();
     Empleador crearEmpleador(Empleador empleador);
     Empleador buscarEmpleadorPorId(int idEmpleador);
     Empleador actualizarEmpleador(Empleador empleador, int idEmpleador);

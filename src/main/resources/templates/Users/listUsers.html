@@ -11,7 +11,7 @@
 		<section class="container">
 			<h2>Listado de Usuarios</h2>
 			<div class="centerButton">
-				<a href="/usuario/mostrarCrear" class="btn btn-primary text-align m-1"
+				<a href="/usuario/creacion" class="btn btn-primary text-align m-1"
 					>Crear nuevo Usuario</a
 				>
 			</div>
@@ -47,7 +47,6 @@
 								th:action="@{/usuario/editar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
 								method="GET"
 							>
-								<!-- ir a actualizar -->
 								<button type="submit" class="btn btn-success">
 									<i class="bi bi-pencil-square"></i>
 								</button>
@@ -57,12 +56,21 @@
 								th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
 								method="POST"
 							>
-								<!--eliminar-->
-								<!--							<input type="hidden" name="_method" value="DELETE">-->
-								<button type="submit" class="btn btn-danger" name="eliminar" value="Eliminar">
+								<button type="submit" class="btn btn-danger">
 									<i class="bi bi-trash"></i>
 								</button>
 							</form>
+<!--
+							<div th:if="${param.swalTitle != null}">
+								<script th:inline="javascript">
+									swal({
+										title: /*[[${param.swalTitle}]]*/,
+										text: /*[[${param.swalText}]]*/,
+										type: /*[[${param.swalType}]]*/
+									});
+								</script>
+							</div>
+-->
 						</td>
 					</tr>
 				</tbody>

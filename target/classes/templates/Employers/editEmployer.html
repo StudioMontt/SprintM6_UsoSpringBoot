@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Actualizar Empleador</title>
+
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
+
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Actualizar Empleador</h2>
+			<form
+				th:action="@{/empleador/actualizar/{idEmpleador}(idEmpleador=${empleador.idEmpleador})}"
+				th:object="${empleador}"
+				method="POST"
+			>
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">Run:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						th:field="*{run}"
+						th:value="${empleador.run}"
+						readonly
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="nombre"
+						th:field="*{nombre}"
+						th:value="${empleador.nombre}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido1" class="form-label">Primer Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido1"
+						th:field="*{apellido1}"
+						th:value="${empleador.apellido1}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido2" class="form-label">Segundo Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido2"
+						th:field="*{apellido2}"
+						th:value="${empleador.apellido2}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="direccion" class="form-label">Dirección:</label>
+					<input
+							type="text"
+							class="form-control"
+							id="direccion"
+							th:field="*{direccion}"
+							th:value="${empleador.direccion}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label>
+					<input
+						type="email"
+						class="form-control"
+						id="email"
+						th:field="*{email}"
+						th:value="${empleador.email}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="telefono"
+						th:field="*{telefono}"
+						th:value="${empleador.telefono}"
+					/>
+				</div>
+<!--					<select class="form-select form-select mb-3" th:field="usuario" aria-label="Usuario al que corresponde">
+						<option th:value="${usuario.idUsuario} selected>Seleccione un Usuario</option>
+						<option
+								th:each="usuario : ${listaUsuarios}"
+								th:value="${usuario.idUsuario}"
+								th:text="${usuario.nombre} + ' ' + ${usuario.apellido1}"
+						>
+						</option>
+					</select>-->
+				<div class="text-center m-2">
+					<button type="submit" class="btn btn-warning m-2">Actualizar Empleador</button>
+				</div>
+			</form>
+		</section>
+
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
+</html>

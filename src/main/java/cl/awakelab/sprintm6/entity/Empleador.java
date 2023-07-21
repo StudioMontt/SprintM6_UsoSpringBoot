@@ -33,7 +33,7 @@ public class Empleador {
     private String email;
 
     @JoinColumn(name = "id_usuario")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Usuario usuario;
 
     @Column

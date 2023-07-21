@@ -6,12 +6,10 @@ import cl.awakelab.sprintm6.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping(value = "/api/usuario", headers = "Accept=Application/json")
 public class UsuarioRestController {
 
     @Autowired
@@ -20,9 +18,6 @@ public class UsuarioRestController {
     IPerfilService objPerfilService;
 
     @PostMapping ("/crearUsuario")
-/*    public ResponseEntity<?> crearUsuario(@RequestBody UsuarioRequest usuario){
-        Integer perfil = Integer.parseInt(String.valueOf(usuario.getPerfil()));
-        Perfil perfilObj= objPerfilService.buscarPerfilPorId(usuario.getPerfil());*/
     public Usuario crearUsuario(@RequestBody Usuario usuario){
         Usuario usuarioNuevo = new Usuario();
         usuarioNuevo.setRun(usuario.getRun());
@@ -33,15 +28,8 @@ public class UsuarioRestController {
         usuarioNuevo.setTelefono(usuario.getTelefono());
         usuarioNuevo.setClave(usuario.getClave());
         usuarioNuevo.setPerfil(usuario.getPerfil());
-/*        LocalDateTime fechaActual = LocalDateTime.now();
-        LocalDateTime fechaActualConZonaHoraria = fechaActual.atZone(ZoneId.systemDefault()).toLocalDateTime();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        String fechaActualFormateada = fechaActualConZonaHoraria.format(formatter);
-        usuarioNuevo.setFechaCreacion(LocalDateTime.parse(fechaActualFormateada));*/
         usuarioNuevo.setFechaCreacion(LocalDateTime.now());
-
         return objUsuarioService.crearUsuario(usuarioNuevo);
-//        return ResponseEntity.ok("Usuario creado");
     }
 
     @PostMapping ("/registroUsuario")

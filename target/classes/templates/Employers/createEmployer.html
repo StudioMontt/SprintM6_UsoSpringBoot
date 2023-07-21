@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Crear Empleador</title>
+
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
+
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Crear Empleador</h2>
+			<form th:action="@{/empleador/crearEmpleador}" th:object="${empleador}" method="POST">
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">Run:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						name="run"
+						required
+						placeholder="Sólo números, sin digito verificador"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="nombre"
+						name="nombre"
+						required
+						placeholder="Indique su nombre"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido1" class="form-label">Primer Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido1"
+						name="apellido1"
+						required
+						placeholder="Ingrese su primer apellido"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido2" class="form-label">Segundo Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido2"
+						name="apellido2"
+						placeholder="Ingrese su segundo apellido (opcional)"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="clave" class="form-label">Dirección:</label>
+					<input
+							type="text"
+							class="form-control"
+							id="clave"
+							name="direccion"
+							required
+							placeholder="Ingrese su dirección"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="email"
+						name="email"
+						required
+						placeholder="email@servidor.cl"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="telefono"
+						name="telefono"
+						required
+						placeholder="56987654321"
+					/>
+				</div>
+				<select class="form-select mb-3" name="usuario" aria-label="Usuario al que corresponde">
+					<option th:value="${null}" selected>Seleccione un Usuario</option>
+					<option
+							th:each="usuario : ${listaUsuarios}"
+							th:value="${usuario.idUsuario}"
+							th:text="${usuario.nombre} + ' ' + ${usuario.apellido1}"
+					>
+					</option>
+				</select>
+				<div class="text-center" m-5>
+					<button type="submit" class="btn btn-primary">Crear Empleador</button>
+				</div>
+			</form>
+		</section>
+
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
+</html>

@@ -25,6 +25,6 @@ public class Perfil {
 //        return estado;
 //    }
 
-    @OneToMany(mappedBy = "perfil")
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL)
     private List<Usuario> listaUsuarios;
 }

@@ -1,6 +1,5 @@
 package cl.awakelab.sprintm6.controller;
 
-import cl.awakelab.sprintm6.entity.Perfil;
 import cl.awakelab.sprintm6.entity.Usuario;
 import cl.awakelab.sprintm6.service.IPerfilService;
 import cl.awakelab.sprintm6.service.IUsuarioService;
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,23 +26,23 @@ public class UsuarioController {
     public String listarUsuarios(Model model){
         List<Usuario> listaUsuarios = objUsuarioService.listarUsuarios();
         model.addAttribute("usuario", listaUsuarios);
-        return "listUsers";
+        return "Users/listUsers";
     }
 
     //MUESTRA FORMULARIO DE GUARDAR
-    @GetMapping("/mostrarCrear")
+    @GetMapping("/creacion")
     public String mostrarFormularioCrearUsuario(Model model){
         Usuario usuario = new Usuario();
         model.addAttribute("usuario", usuario);
-        return "createUser";
+        return "Users/createUser";
     }
 
     //GUARDA Y REDIRIGE AL LISTADO
 
     @PostMapping("/crearUsuario")
-    public String crearUsuario(@ModelAttribute Usuario usuario){
-        usuario.setFechaCreacion(LocalDateTime.now());
-        objUsuarioService.crearUsuario(usuario);
+    public String crearUsuario(@ModelAttribute Usuario usuarioCrear){
+        usuarioCrear.setFechaCreacion(LocalDateTime.now());
+        objUsuarioService.crearUsuario(usuarioCrear);
         return "redirect:/usuario";
     }
 
@@ -56,8 +56,9 @@ public class UsuarioController {
 
     //REGISTRA Y REDIRIGE A LA BIENVENIDA
     @PostMapping("/registroUsuario")
-    public String registrarUsuario(@ModelAttribute Usuario usuario){
-        objUsuarioService.crearUsuario(usuario);
+    public String registrarUsuario(@ModelAttribute Usuario usuarioReg){
+        usuarioReg.setFechaCreacion(LocalDateTime.now());
+        objUsuarioService.crearUsuario(usuarioReg);
         return "redirect:/welcome";
     }
     //MUESTRA FORMULARIO DE EDITAR
@@ -65,7 +66,7 @@ public class UsuarioController {
     public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model){
         Usuario usuarioParaEditar = objUsuarioService.buscarUsuarioPorId(idUsuario);
         model.addAttribute("usuario", usuarioParaEditar);
-        return "editUser";
+        return "Users/editUser";
     }
 
     //ACTUALIZAR Y REDIRIGE A LISTADO
@@ -78,8 +79,15 @@ public class UsuarioController {
 
     //ELIMINAR Y REDIRIGIR A LISTADO
     @PostMapping("/eliminar/{idUsuario}")
-    public String eliminarUsuario(@PathVariable int idUsuario) {
+    public String eliminarUsuario(@PathVariable int idUsuario, RedirectAttributes redirectAttributes) {
+
         objUsuarioService.eliminarUsuario(idUsuario);
+/*
+
+        redirectAttributes.addFlashAttribute("swalTitle", "¡Eliminado!");
+        redirectAttributes.addFlashAttribute("swalText", "Los datos fueron eliminados con éxito.");
+        redirectAttributes.addFlashAttribute("swalType", "success");
+*/
         return "redirect:/usuario";
     }
 }

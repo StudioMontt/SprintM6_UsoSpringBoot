@@ -35,10 +35,6 @@ public class Usuario {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JsonIgnore
     private Perfil perfil;
-/*
-    @Transient
-    private int idPerfilSeleccionado;
-*/
 
     @Column(length = 100, nullable = false)
     private String email;
@@ -49,6 +45,6 @@ public class Usuario {
     @Column
     private long telefono;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Empleador> listaEmpleadores;
 }

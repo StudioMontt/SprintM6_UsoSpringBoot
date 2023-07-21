@@ -40,7 +40,7 @@ public class Trabajador {
     @Column(nullable = false)
     private int telefono;
 
-    @OneToMany(mappedBy = "trabajador")
+    @OneToMany(mappedBy = "trabajador", cascade = CascadeType.ALL)
     private List<Liquidacion> listaLiquidaciones;
 
     @ManyToMany

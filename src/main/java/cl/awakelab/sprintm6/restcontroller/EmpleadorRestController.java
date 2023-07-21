@@ -25,7 +25,7 @@ public class EmpleadorRestController {
 
     @GetMapping
     public List<Empleador> listarUsuarios(){
-        return objEmpleadorService.listarUsuarios();
+        return objEmpleadorService.listarEmpleadores();
     }
 
     @PutMapping("/{idEmpleador}")
