@@ -56,21 +56,10 @@
 								th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
 								method="POST"
 							>
-								<button type="submit" class="btn btn-danger">
+								<button type="button" class="btn btn-danger" onclick="confirmDeleteScript(this.form)">
 									<i class="bi bi-trash"></i>
 								</button>
 							</form>
-<!--
-							<div th:if="${param.swalTitle != null}">
-								<script th:inline="javascript">
-									swal({
-										title: /*[[${param.swalTitle}]]*/,
-										text: /*[[${param.swalText}]]*/,
-										type: /*[[${param.swalType}]]*/
-									});
-								</script>
-							</div>
--->
 						</td>
 					</tr>
 				</tbody>

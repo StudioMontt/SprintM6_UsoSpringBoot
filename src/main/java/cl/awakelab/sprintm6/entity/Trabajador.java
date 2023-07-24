@@ -38,7 +38,7 @@ public class Trabajador {
     private InstSalud salud;
 
     @Column(nullable = false)
-    private int telefono;
+    private long telefono;
 
     @OneToMany(mappedBy = "trabajador", cascade = CascadeType.ALL)
     private List<Liquidacion> listaLiquidaciones;

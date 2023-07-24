@@ -54,8 +54,8 @@ public class EmpleadorController {
 
     //ACTUALIZAR Y REDIRIGE A LISTADO
     @PostMapping("/actualizar/{idEmpleador}")
-    public String actualizarEmpleador(@ModelAttribute Empleador empleador, @PathVariable int idEmpleador){
-        objEmpleadorService.actualizarEmpleador(empleador, idEmpleador);
+    public String actualizarEmpleador(@ModelAttribute Empleador empleadorActualizar, @PathVariable int idEmpleador){
+        objEmpleadorService.actualizarEmpleador(empleadorActualizar, idEmpleador);
         return "redirect:/empleador";
     }
 

@@ -71,8 +71,8 @@ public class UsuarioController {
 
     //ACTUALIZAR Y REDIRIGE A LISTADO
     @PostMapping("/actualizar/{idUsuario}")
-    public String actualizarUsuario(@ModelAttribute Usuario usuario, @PathVariable int idUsuario){
-        objUsuarioService.actualizarUsuario(usuario, idUsuario);
+    public String actualizarUsuario(@ModelAttribute Usuario usuarioActualizar, @PathVariable int idUsuario){
+        objUsuarioService.actualizarUsuario(usuarioActualizar, idUsuario);
         return "redirect:/usuario";
     }
 
