@@ -27,12 +27,14 @@ public class TrabajadorImpl implements ITrabajadorService {
 
     @Override
     public Trabajador buscarTrabajadorPorId(int idTrabajador) {
-        return objTrabajadorRepo.findById(idTrabajador).orElseThrow(() -> new NoSuchElementException("Trabajador no encontrado"));
+        return objTrabajadorRepo.findById(idTrabajador)
+                .orElseThrow(() -> new NoSuchElementException("Trabajador no encontrado"));
     }
 
     @Override
     public Trabajador actualizarTrabajador(Trabajador trabajadorActualizar, int idTrabajador) {
-        Trabajador trabajador = objTrabajadorRepo.findById(idTrabajador).orElseThrow(() -> new NoSuchElementException("Trabajador no encontrado"));
+        Trabajador trabajador = objTrabajadorRepo.findById(idTrabajador)
+                .orElseThrow(() -> new NoSuchElementException("Trabajador no encontrado"));
         trabajador.setRun(trabajadorActualizar.getRun());
         trabajador.setNombre(trabajadorActualizar.getNombre());
         trabajador.setApellido1(trabajadorActualizar.getApellido1());

@@ -14,27 +14,28 @@ public class TrabajadorRestController {
     ITrabajadorService objTrabajadorService;
 
     @PostMapping
-    public Trabajador crearTrabajador(@RequestBody Trabajador trabajador){
+    public Trabajador crearTrabajador(@RequestBody Trabajador trabajador) {
         return objTrabajadorService.crearTrabajador(trabajador);
     }
 
     @GetMapping("/{idTrabajador}")
-    public Trabajador buscarTrabajadorPorId(@PathVariable int idTrabajador){
+    public Trabajador buscarTrabajadorPorId(@PathVariable int idTrabajador) {
         return objTrabajadorService.buscarTrabajadorPorId(idTrabajador);
     }
 
     @GetMapping
-    public List<Trabajador> listarTrabajador(){
+    public List<Trabajador> listarTrabajador() {
         return objTrabajadorService.listarTrabajador();
     }
 
     @PutMapping("/{idTrabajador}")
-    public Trabajador actualizarTrabajador(@RequestBody Trabajador trabajadorActualizar, @PathVariable int idTrabajador){
-        return objTrabajadorService.actualizarTrabajador(trabajadorActualizar,idTrabajador);
+    public Trabajador actualizarTrabajador(@RequestBody Trabajador trabajadorActualizar,
+            @PathVariable int idTrabajador) {
+        return objTrabajadorService.actualizarTrabajador(trabajadorActualizar, idTrabajador);
     }
 
     @DeleteMapping("/{idTrabajador}")
-    public void eliminarTrabajador(@PathVariable int idTrabajador){
+    public void eliminarTrabajador(@PathVariable int idTrabajador) {
         objTrabajadorService.eliminarTrabajador(idTrabajador);
     }
 }

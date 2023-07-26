@@ -77,7 +77,8 @@ public class LiquidacionController {
 
     // ACTUALIZAR Y REDIRIGE A LISTADO
     @PostMapping("/actualizar/{idLiquidacion}")
-    public String actualizarLiquidacion(@ModelAttribute Liquidacion liquidacionActualizar, @PathVariable int idLiquidacion) {
+    public String actualizarLiquidacion(@ModelAttribute Liquidacion liquidacionActualizar,
+            @PathVariable int idLiquidacion) {
         liquidacionActualizar.setIdLiquidacion(idLiquidacion);
         objLiquidacionService.actualizarLiquidacion(liquidacionActualizar, idLiquidacion);
         return "redirect:/liquidacion";

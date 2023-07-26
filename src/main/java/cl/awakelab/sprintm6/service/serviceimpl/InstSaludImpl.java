@@ -26,12 +26,14 @@ public class InstSaludImpl implements IInstSaludService {
 
     @Override
     public InstSalud buscarInstSaludPorId(int idInstSalud) {
-        return objInstSaludRepo.findById(idInstSalud).orElseThrow(() -> new NoSuchElementException("Institución de Salud no encontrada"));
+        return objInstSaludRepo.findById(idInstSalud)
+                .orElseThrow(() -> new NoSuchElementException("Institución de Salud no encontrada"));
     }
 
     @Override
     public InstSalud actualizarInstSalud(InstSalud instSaludActualizar, int idInstSalud) {
-        InstSalud instSalud = objInstSaludRepo.findById(idInstSalud).orElseThrow(() -> new NoSuchElementException("Institución de Salud no encontrada"));
+        InstSalud instSalud = objInstSaludRepo.findById(idInstSalud)
+                .orElseThrow(() -> new NoSuchElementException("Institución de Salud no encontrada"));
         instSalud.setDescripcion(instSaludActualizar.getDescripcion());
         instSalud.setPorcDctoSalud(instSaludActualizar.getPorcDctoSalud());
         return objInstSaludRepo.save(instSalud);

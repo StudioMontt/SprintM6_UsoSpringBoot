@@ -26,12 +26,14 @@ public class InstPrevisionImpl implements IInstPrevisionService {
 
     @Override
     public InstPrevision buscarInstPrevisionPorId(int idInstPrevision) {
-        return objInstPrevisionRepo.findById(idInstPrevision).orElseThrow(() -> new NoSuchElementException("Institución de Previsión no encontrada"));
+        return objInstPrevisionRepo.findById(idInstPrevision)
+                .orElseThrow(() -> new NoSuchElementException("Institución de Previsión no encontrada"));
     }
 
     @Override
     public InstPrevision actualizarInstPrevision(InstPrevision instPrevisionActualizar, int idInstPrevision) {
-        InstPrevision instPrevision = objInstPrevisionRepo.findById(idInstPrevision).orElseThrow(() -> new NoSuchElementException("Institución de Previsión no encontrada"));
+        InstPrevision instPrevision = objInstPrevisionRepo.findById(idInstPrevision)
+                .orElseThrow(() -> new NoSuchElementException("Institución de Previsión no encontrada"));
         instPrevision.setDescripcion(instPrevisionActualizar.getDescripcion());
         instPrevision.setPorcDctoPrev(instPrevisionActualizar.getPorcDctoPrev());
         return objInstPrevisionRepo.save(instPrevision);

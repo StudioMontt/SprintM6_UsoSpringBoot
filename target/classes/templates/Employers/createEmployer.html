@@ -57,12 +57,12 @@
 				<div class="mb-3">
 					<label for="clave" class="form-label">Dirección:</label>
 					<input
-							type="text"
-							class="form-control"
-							id="clave"
-							name="direccion"
-							required
-							placeholder="Ingrese su dirección"
+						type="text"
+						class="form-control"
+						id="clave"
+						name="direccion"
+						required
+						placeholder="Ingrese su dirección"
 					/>
 				</div>
 				<div class="mb-3">
@@ -87,21 +87,23 @@
 						placeholder="56987654321"
 					/>
 				</div>
-				<select class="form-select mb-3" name="usuario" aria-label="Usuario al que corresponde">
+				<select
+					class="form-select mb-3"
+					name="usuario"
+					aria-label="Usuario al que corresponde"
+				>
 					<option th:value="${null}" selected>Seleccione un Usuario</option>
 					<option
-							th:each="usuario : ${listaUsuarios}"
-							th:value="${usuario.idUsuario}"
-							th:text="${usuario.nombre} + ' ' + ${usuario.apellido1}"
-					>
-					</option>
+						th:each="usuario : ${listaUsuarios}"
+						th:value="${usuario.idUsuario}"
+						th:text="${usuario.nombre} + ' ' + ${usuario.apellido1}"
+					></option>
 				</select>
 				<div class="text-center m-5">
 					<button type="submit" class="btn btn-primary">Crear Empleador</button>
 				</div>
 			</form>
 		</section>
-
 	</body>
 	<footer th:include="~{../static/html/footer.html}"></footer>
 </html>

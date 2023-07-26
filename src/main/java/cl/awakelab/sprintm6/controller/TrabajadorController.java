@@ -51,7 +51,8 @@ public class TrabajadorController {
 
     // GUARDA Y REDIRIGE AL LISTADO
     @PostMapping("/crearTrabajador")
-    public String crearTrabajador(@ModelAttribute Trabajador trabajadorCrear, @RequestParam("empleadores") List<Integer> idsEmpleadores) {
+    public String crearTrabajador(@ModelAttribute Trabajador trabajadorCrear,
+            @RequestParam("empleadores") List<Integer> idsEmpleadores) {
         List<Empleador> empleadores = new ArrayList<>();
         for (Integer idEmpleador : idsEmpleadores) {
             Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
@@ -84,7 +85,8 @@ public class TrabajadorController {
 
     // ACTUALIZAR Y REDIRIGE A LISTADO
     @PostMapping("/actualizar/{idTrabajador}")
-    public String actualizarTrabajador(@ModelAttribute Trabajador trabajadorEditar, @PathVariable int idTrabajador, @RequestParam("empleadores") List<Integer> idsEmpleadores) {
+    public String actualizarTrabajador(@ModelAttribute Trabajador trabajadorEditar, @PathVariable int idTrabajador,
+            @RequestParam("empleadores") List<Integer> idsEmpleadores) {
         List<Empleador> empleadores = new ArrayList<>();
         for (Integer idEmpleador : idsEmpleadores) {
             Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);

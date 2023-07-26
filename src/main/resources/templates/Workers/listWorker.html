@@ -1,66 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head th:include="~{../static/html/head.html}"></head>
-<title>Listado de Trabajadores</title>
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Listado de Trabajadores</title>
 
-<body>
-<header>
-	<nav th:include="~{../static/html/nav-bar.html}"></nav>
-</header>
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
 
-<section class="container">
-	<h2>Listado de Trabajadores</h2>
-	<div class="centerButton">
-		<a href="/trabajador/creacion" class="btn btn-primary text-align m-1"
-		>Crear nuevo Trabajador</a
-		>
-	</div>
-	<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-			<th>ID</th>
-			<th>Run</th>
-			<th>Nombre</th>
-			<th>Primer Apellido</th>
-			<th>Segundo Apellido</th>
-			<th>Email</th>
-			<th>Acción</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr th:each="trabajador: ${trabajador}">
-			<td th:text="${trabajador.idTrabajador}"></td>
-			<td th:text="${trabajador.run}"></td>
-			<td th:text="${trabajador.nombre}"></td>
-			<td th:text="${trabajador.apellido1}"></td>
-			<td th:text="${trabajador.apellido2}"></td>
-			<td th:text="${trabajador.email}"></td>
-			<td th:text="${trabajador.telefono}"></td>
-			<td class="align-middle d-flex">
-				<form
-						class="m-2"
-						th:action="@{/trabajador/editar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
-						method="GET"
+		<section class="container">
+			<h2>Listado de Trabajadores</h2>
+			<div class="centerButton">
+				<a href="/trabajador/creacion" class="btn btn-primary text-align m-1"
+					>Crear nuevo Trabajador</a
 				>
-					<button type="submit" class="btn btn-success">
-						<i class="bi bi-pencil-square"></i>
-					</button>
-				</form>
-				<form
-						class="m-2"
-						th:action="@{/trabajador/eliminar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
-						method="POST"
-				>
-					<button type="submit" class="btn btn-danger" onclick="confirmDeleteScript(this.form)">
-						<i class="bi bi-trash"></i>
-					</button>
-				</form>
-			</td>
-		</tr>
-		</tbody>
-	</table>
-</section>
+			</div>
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Run</th>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th>Email</th>
+						<th>Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="trabajador: ${trabajador}">
+						<td th:text="${trabajador.idTrabajador}"></td>
+						<td th:text="${trabajador.run}"></td>
+						<td th:text="${trabajador.nombre}"></td>
+						<td th:text="${trabajador.apellido1}"></td>
+						<td th:text="${trabajador.apellido2}"></td>
+						<td th:text="${trabajador.email}"></td>
+						<td th:text="${trabajador.telefono}"></td>
+						<td class="align-middle d-flex">
+							<form
+								class="m-2"
+								th:action="@{/trabajador/editar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
+								method="GET"
+							>
+								<button type="submit" class="btn btn-success">
+									<i class="bi bi-pencil-square"></i>
+								</button>
+							</form>
+							<form
+								class="m-2"
+								th:action="@{/trabajador/eliminar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
+								method="POST"
+							>
+								<button
+									type="submit"
+									class="btn btn-danger"
+									onclick="confirmDeleteScript(this.form)"
+								>
+									<i class="bi bi-trash"></i>
+								</button>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
 
-<footer th:include="~{../static/html/footer.html}"></footer>
-</body>
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
 </html>

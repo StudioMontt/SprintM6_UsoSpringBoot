@@ -14,27 +14,27 @@ public class EmpleadorRestController {
     IEmpleadorService objEmpleadorService;
 
     @PostMapping
-    public Empleador crearEmpleador(@RequestBody Empleador empleador){
+    public Empleador crearEmpleador(@RequestBody Empleador empleador) {
         return objEmpleadorService.crearEmpleador(empleador);
     }
 
     @GetMapping("/{idEmpleador}")
-    public Empleador buscarEmpleadorPorId(@PathVariable int idEmpleador){
+    public Empleador buscarEmpleadorPorId(@PathVariable int idEmpleador) {
         return objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
     }
 
     @GetMapping
-    public List<Empleador> listarUsuarios(){
+    public List<Empleador> listarUsuarios() {
         return objEmpleadorService.listarEmpleadores();
     }
 
     @PutMapping("/{idEmpleador}")
-    public Empleador actualizarEmpleador(@RequestBody Empleador empleadorActualizar, @PathVariable int idEmpleador){
-        return objEmpleadorService.actualizarEmpleador(empleadorActualizar,idEmpleador);
+    public Empleador actualizarEmpleador(@RequestBody Empleador empleadorActualizar, @PathVariable int idEmpleador) {
+        return objEmpleadorService.actualizarEmpleador(empleadorActualizar, idEmpleador);
     }
 
     @DeleteMapping("/{idEmpleador}")
-    public void eliminarEmpleador(@PathVariable int idEmpleador){
+    public void eliminarEmpleador(@PathVariable int idEmpleador) {
         objEmpleadorService.eliminarEmpleador(idEmpleador);
     }
 }

@@ -14,27 +14,28 @@ public class LiquidacionRestController {
     ILiquidacionService objLiquidacionService;
 
     @PostMapping
-    public Liquidacion crearLiquidacion(@RequestBody Liquidacion liquidacion){
+    public Liquidacion crearLiquidacion(@RequestBody Liquidacion liquidacion) {
         return objLiquidacionService.crearLiquidacion(liquidacion);
     }
 
     @GetMapping("/{idLiquidacion}")
-    public Liquidacion buscarLiquidacionPorId(@PathVariable int idLiquidacion){
+    public Liquidacion buscarLiquidacionPorId(@PathVariable int idLiquidacion) {
         return objLiquidacionService.buscarLiquidacionPorId(idLiquidacion);
     }
 
     @GetMapping
-    public List<Liquidacion> listarLiquidacion(){
+    public List<Liquidacion> listarLiquidacion() {
         return objLiquidacionService.listarLiquidacion();
     }
 
     @PutMapping("/{idLiquidacion}")
-    public Liquidacion actualizarLiquidacion(@RequestBody Liquidacion liquidacionActualizar, @PathVariable int idLiquidacion){
-        return objLiquidacionService.actualizarLiquidacion(liquidacionActualizar,idLiquidacion);
+    public Liquidacion actualizarLiquidacion(@RequestBody Liquidacion liquidacionActualizar,
+            @PathVariable int idLiquidacion) {
+        return objLiquidacionService.actualizarLiquidacion(liquidacionActualizar, idLiquidacion);
     }
 
     @DeleteMapping("/{idLiquidacion}")
-    public void eliminarLiquidacion(@PathVariable int idLiquidacion){
+    public void eliminarLiquidacion(@PathVariable int idLiquidacion) {
         objLiquidacionService.eliminarLiquidacion(idLiquidacion);
     }
 }

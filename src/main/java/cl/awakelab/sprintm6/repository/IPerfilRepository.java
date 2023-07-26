@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IPerfilRepository extends JpaRepository<Perfil, Integer> {
-        }
+}

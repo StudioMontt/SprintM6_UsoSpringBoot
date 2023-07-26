@@ -14,27 +14,28 @@ public class InstPrevisionRestController {
     IInstPrevisionService objInstPrevisionService;
 
     @PostMapping
-    public InstPrevision crearInstPrevision(@RequestBody InstPrevision instPrevision){
+    public InstPrevision crearInstPrevision(@RequestBody InstPrevision instPrevision) {
         return objInstPrevisionService.crearInstPrevision(instPrevision);
     }
 
     @GetMapping("/{idInstPrevision}")
-    public InstPrevision buscarInstPrevisionPorId(@PathVariable int idInstPrevision){
+    public InstPrevision buscarInstPrevisionPorId(@PathVariable int idInstPrevision) {
         return objInstPrevisionService.buscarInstPrevisionPorId(idInstPrevision);
     }
 
     @GetMapping
-    public List<InstPrevision> listarInstPrevision(){
+    public List<InstPrevision> listarInstPrevision() {
         return objInstPrevisionService.listarInstPrevision();
     }
 
     @PutMapping("/{idInstPrevision}")
-    public InstPrevision actualizarInstPrevision(@RequestBody InstPrevision instPrevisionActualizar, @PathVariable int idInstPrevision){
-        return objInstPrevisionService.actualizarInstPrevision(instPrevisionActualizar,idInstPrevision);
+    public InstPrevision actualizarInstPrevision(@RequestBody InstPrevision instPrevisionActualizar,
+            @PathVariable int idInstPrevision) {
+        return objInstPrevisionService.actualizarInstPrevision(instPrevisionActualizar, idInstPrevision);
     }
 
     @DeleteMapping("/{idInstPrevision}")
-    public void eliminarInstPrevision(@PathVariable int idInstPrevision){
+    public void eliminarInstPrevision(@PathVariable int idInstPrevision) {
         objInstPrevisionService.eliminarInstPrevision(idInstPrevision);
     }
 }

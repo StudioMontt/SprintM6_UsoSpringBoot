@@ -14,27 +14,27 @@ public class InstSaludRestController {
     IInstSaludService objInstSaludService;
 
     @PostMapping
-    public InstSalud crearInstSalud(@RequestBody InstSalud instSalud){
+    public InstSalud crearInstSalud(@RequestBody InstSalud instSalud) {
         return objInstSaludService.crearInstSalud(instSalud);
     }
 
     @GetMapping("/{idInstSalud}")
-    public InstSalud buscarInstSaludPorId(@PathVariable int idInstSalud){
+    public InstSalud buscarInstSaludPorId(@PathVariable int idInstSalud) {
         return objInstSaludService.buscarInstSaludPorId(idInstSalud);
     }
 
     @GetMapping
-    public List<InstSalud> listarInstSalud(){
+    public List<InstSalud> listarInstSalud() {
         return objInstSaludService.listarInstSalud();
     }
 
     @PutMapping("/{idInstSalud}")
-    public InstSalud actualizarInstSalud(@RequestBody InstSalud instSaludActualizar, @PathVariable int idInstSalud){
-        return objInstSaludService.actualizarInstSalud(instSaludActualizar,idInstSalud);
+    public InstSalud actualizarInstSalud(@RequestBody InstSalud instSaludActualizar, @PathVariable int idInstSalud) {
+        return objInstSaludService.actualizarInstSalud(instSaludActualizar, idInstSalud);
     }
 
     @DeleteMapping("/{idInstSalud}")
-    public void eliminarInstSalud(@PathVariable int idInstSalud){
+    public void eliminarInstSalud(@PathVariable int idInstSalud) {
         objInstSaludService.eliminarInstSalud(idInstSalud);
     }
 }

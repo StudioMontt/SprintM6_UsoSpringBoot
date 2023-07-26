@@ -31,7 +31,8 @@ public class PerfilImpl implements IPerfilService {
 
     @Override
     public Perfil actualizarPerfil(Perfil perfilActualizar, int idPerfil) {
-        Perfil perfil = objPerfilRepo.findById(idPerfil).orElseThrow(() -> new NoSuchElementException("Perfil no encontrado"));
+        Perfil perfil = objPerfilRepo.findById(idPerfil)
+                .orElseThrow(() -> new NoSuchElementException("Perfil no encontrado"));
         perfil.setDescripcion(perfilActualizar.getDescripcion());
         perfil.setEstado(perfilActualizar.getEstado());
         return objPerfilRepo.save(perfil);

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "liquidacion")

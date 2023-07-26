@@ -14,27 +14,27 @@ public class PerfilRestController {
     IPerfilService objPerfilService;
 
     @PostMapping
-    public Perfil crearPerfil(@RequestBody Perfil perfil){
+    public Perfil crearPerfil(@RequestBody Perfil perfil) {
         return objPerfilService.crearPerfil(perfil);
     }
 
     @GetMapping("/{idPerfil}")
-    public Perfil buscarPerfilPorId(@PathVariable int idPerfil){
+    public Perfil buscarPerfilPorId(@PathVariable int idPerfil) {
         return objPerfilService.buscarPerfilPorId(idPerfil);
     }
 
     @GetMapping
-    public List<Perfil> listarPerfil(){
+    public List<Perfil> listarPerfil() {
         return objPerfilService.listarPerfil();
     }
 
     @PutMapping("/{idPerfil}")
-    public Perfil actualizarPerfil(@RequestBody Perfil perfilActualizar, @PathVariable int idPerfil){
-        return objPerfilService.actualizarPerfil(perfilActualizar,idPerfil);
+    public Perfil actualizarPerfil(@RequestBody Perfil perfilActualizar, @PathVariable int idPerfil) {
+        return objPerfilService.actualizarPerfil(perfilActualizar, idPerfil);
     }
 
     @DeleteMapping("/{idPerfil}")
-    public void eliminarPerfil(@PathVariable int idPerfil){
+    public void eliminarPerfil(@PathVariable int idPerfil) {
         objPerfilService.eliminarPerfil(idPerfil);
     }
 }

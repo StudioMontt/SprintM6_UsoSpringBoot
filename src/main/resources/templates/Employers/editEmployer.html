@@ -59,11 +59,11 @@
 				<div class="mb-3">
 					<label for="direccion" class="form-label">Dirección:</label>
 					<input
-							type="text"
-							class="form-control"
-							id="direccion"
-							th:field="*{direccion}"
-							th:value="${empleador.direccion}"
+						type="text"
+						class="form-control"
+						id="direccion"
+						th:field="*{direccion}"
+						th:value="${empleador.direccion}"
 					/>
 				</div>
 				<div class="mb-3">
@@ -86,7 +86,7 @@
 						th:value="${empleador.telefono}"
 					/>
 				</div>
-<!--					<select class="form-select form-select mb-3" th:field="usuario" aria-label="Usuario al que corresponde">
+				<!--					<select class="form-select form-select mb-3" th:field="usuario" aria-label="Usuario al que corresponde">
 						<option th:value="${usuario.idUsuario} selected>Seleccione un Usuario</option>
 						<option
 								th:each="usuario : ${listaUsuarios}"

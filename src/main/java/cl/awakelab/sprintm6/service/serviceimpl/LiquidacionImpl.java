@@ -6,8 +6,6 @@ import cl.awakelab.sprintm6.service.ILiquidacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -29,12 +27,14 @@ public class LiquidacionImpl implements ILiquidacionService {
 
     @Override
     public Liquidacion buscarLiquidacionPorId(int idLiquidacion) {
-        return objLiquidacionRepo.findById(idLiquidacion).orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
+        return objLiquidacionRepo.findById(idLiquidacion)
+                .orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
     }
 
     @Override
     public Liquidacion actualizarLiquidacion(Liquidacion liquidacionActualizar, int idLiquidacion) {
-        Liquidacion liquidacion = objLiquidacionRepo.findById(idLiquidacion).orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
+        Liquidacion liquidacion = objLiquidacionRepo.findById(idLiquidacion)
+                .orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
         liquidacion.setPeriodo(liquidacionActualizar.getPeriodo());
         liquidacion.setTrabajador(liquidacionActualizar.getTrabajador());
         liquidacion.setSueldoImponible(liquidacionActualizar.getSueldoImponible());

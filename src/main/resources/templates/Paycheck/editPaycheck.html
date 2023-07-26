@@ -1,117 +1,169 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head th:include="~{../static/html/head.html}"></head>
-<title>Actualizar Trabajador</title>
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Actualizar Trabajador</title>
 
-<body>
-<header>
-	<nav th:include="~{../static/html/nav-bar.html}"></nav>
-</header>
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
 
-<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	<h2>Actualizar Liquidación</h2>
-	<form
-			th:action="@{/liquidacion/actualizar/{idLiquidacion}(idLiquidacion=${liquidacion.idLiquidacion})}"
-			th:object="${liquidacion}"
-			method="POST"
-	>
-		<div class="form-group mb-3">
-			<label for="mes" class="form-label">Mes a Liquidar:</label>
-			<input
-					type="date"
-					class="form-control"
-					id="mes"
-					name="periodo"
-					th:value="${liquidacion.periodo}"
-					readonly
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="trabajador">Trabajador</label>
-			<select class="form-select mb-3" id="trabajador" th:field="*{trabajador.idTrabajador}" aria-label="Trabajador asociado a la liquidación">
-				<option th:value="${liquidacion.trabajador.getIdTrabajador()}" selected>Seleccione la Instituición de Previsión del Trabajador</option>
-				<option
-						th:each="trabajador : ${trabajadores}"
-						th:value="${trabajador.idTrabajador}"
-						th:text="${trabajador.nombre} + ' ' + ${trabajador.apellido1}"
-				>|
-				</option>
-			</select>
-		</div>
-		<div class="mb-3">
-			<label for="imponible" class="form-label">Sueldo Imponible</label>
-			<input
-					type="text"
-					class="form-control"
-					id="imponible"
-					th:field="*{sueldoImponible}"
-					th:value="${liquidacion.sueldoImponible}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="idAfp">AFP</label>
-			<select class="form-select mb-3" id="idAfp" th:field="*{prevision.idPrevision}" aria-label="AFP al que pertenece">
-				<option th:value="${liquidacion.prevision.getIdPrevision()}" selected>Seleccione la Institución de Previsión de la Liquidación</option>
-				<option
-						th:each="prevision : ${listaAFP}"
-						th:value="${prevision.idPrevision}"
-						th:text="${prevision.descripcion}"
-						th:data-afp="${prevision.porcDctoPrev}"
-				>|
-				</option>
-			</select>
-		</div>
-			<div class="form-group mb-3">
-				<label for="montoAfp" class="form-label">Cotización Legal AFP:</label>
-				<input type="number" class="form-control" id="montoAfp" th:field="*{dctoPrevision}" readonly>
-			</div>
-			<div class="mb-3">
-				<label for="idSalud">Institución de Salud</label>
-				<select class="form-select mb-3" id="idSalud" th:field="*{salud.idSalud}" aria-label="Institución de Salud al que pertenece">
-					<option th:value="${liquidacion.salud.getIdSalud()}" selected>Seleccione la Instituición de Salud del Trabajador</option>
-					<option
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Actualizar Liquidación</h2>
+			<form
+				th:action="@{/liquidacion/actualizar/{idLiquidacion}(idLiquidacion=${liquidacion.idLiquidacion})}"
+				th:object="${liquidacion}"
+				method="POST"
+			>
+				<div class="form-group mb-3">
+					<label for="mes" class="form-label">Mes a Liquidar:</label>
+					<input
+						type="date"
+						class="form-control"
+						id="mes"
+						name="periodo"
+						th:value="${liquidacion.periodo}"
+						readonly
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="trabajador">Trabajador</label>
+					<select
+						class="form-select mb-3"
+						id="trabajador"
+						th:field="*{trabajador.idTrabajador}"
+						aria-label="Trabajador asociado a la liquidación"
+					>
+						<option th:value="${liquidacion.trabajador.getIdTrabajador()}" selected>
+							Seleccione la Instituición de Previsión del Trabajador
+						</option>
+						<option
+							th:each="trabajador : ${trabajadores}"
+							th:value="${trabajador.idTrabajador}"
+							th:text="${trabajador.nombre} + ' ' + ${trabajador.apellido1}"
+						>
+							|
+						</option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="imponible" class="form-label">Sueldo Imponible</label>
+					<input
+						type="text"
+						class="form-control"
+						id="imponible"
+						th:field="*{sueldoImponible}"
+						th:value="${liquidacion.sueldoImponible}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="idAfp">AFP</label>
+					<select
+						class="form-select mb-3"
+						id="idAfp"
+						th:field="*{prevision.idPrevision}"
+						aria-label="AFP al que pertenece"
+					>
+						<option th:value="${liquidacion.prevision.getIdPrevision()}" selected>
+							Seleccione la Institución de Previsión de la Liquidación
+						</option>
+						<option
+							th:each="prevision : ${listaAFP}"
+							th:value="${prevision.idPrevision}"
+							th:text="${prevision.descripcion}"
+							th:data-afp="${prevision.porcDctoPrev}"
+						>
+							|
+						</option>
+					</select>
+				</div>
+				<div class="form-group mb-3">
+					<label for="montoAfp" class="form-label">Cotización Legal AFP:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="montoAfp"
+						th:field="*{dctoPrevision}"
+						readonly
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="idSalud">Institución de Salud</label>
+					<select
+						class="form-select mb-3"
+						id="idSalud"
+						th:field="*{salud.idSalud}"
+						aria-label="Institución de Salud al que pertenece"
+					>
+						<option th:value="${liquidacion.salud.getIdSalud()}" selected>
+							Seleccione la Instituición de Salud del Trabajador
+						</option>
+						<option
 							th:each="salud : ${listaSalud}"
 							th:value="${salud.idSalud}"
 							th:text="${salud.descripcion}"
 							th:data-salud="${salud.porcDctoSalud}"
-					>
-					</option>
-				</select>
-			</div>
-			<div class="form-group mb-3">
-				<label for="montoSalud" class="form-label">Cotización Legal Salud:</label>
-				<input type="number" class="form-control" id="montoSalud" th:field="*{dctoSalud}" readonly>
-			</div>
+						></option>
+					</select>
+				</div>
+				<div class="form-group mb-3">
+					<label for="montoSalud" class="form-label">Cotización Legal Salud:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="montoSalud"
+						th:field="*{dctoSalud}"
+						readonly
+					/>
+				</div>
 
-			<div class="form-group mb-3">
-				<label for="ttalDctos" class="form-label">Total Descuentos Legales:</label>
-				<input type="number" class="form-control" id="ttalDctos" th:field="*{totalDescuento}" readonly>
-			</div>
-			<div class="form-group mb-3">
-				<label for="haberes" class="form-label">Total Haberes:</label>
-				<input type="number" class="form-control" id="haberes" th:field="*{totalHaberes}" readonly>
-			</div>
-			<div class="mb-3">
-				<label for="anticipo" class="form-label">Anticipos:</label>
-				<input
+				<div class="form-group mb-3">
+					<label for="ttalDctos" class="form-label">Total Descuentos Legales:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="ttalDctos"
+						th:field="*{totalDescuento}"
+						readonly
+					/>
+				</div>
+				<div class="form-group mb-3">
+					<label for="haberes" class="form-label">Total Haberes:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="haberes"
+						th:field="*{totalHaberes}"
+						readonly
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="anticipo" class="form-label">Anticipos:</label>
+					<input
 						type="number"
 						class="form-control"
 						id="anticipo"
 						th:field="*{anticipo}"
 						th:attr="value=${liquidacion.anticipo}"
-				/>
-			</div>
-			<div class="form-group mb-3">
-				<label for="liquido" class="form-label">Sueldo Líquido a Pagar:</label>
-				<input type="number" class="form-control" id="liquido" th:field="*{sueldoLiquido}" readonly>
-			</div>
-		<div class="text-center m-2">
-			<button type="submit" class="btn btn-warning m-2">Actualizar Trabajador</button>
-		</div>
-	</form>
-</section>
+					/>
+				</div>
+				<div class="form-group mb-3">
+					<label for="liquido" class="form-label">Sueldo Líquido a Pagar:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="liquido"
+						th:field="*{sueldoLiquido}"
+						readonly
+					/>
+				</div>
+				<div class="text-center m-2">
+					<button type="submit" class="btn btn-warning m-2">Actualizar Trabajador</button>
+				</div>
+			</form>
+		</section>
 
-<script src="/js/cualculosLiquidacion.js"></script>
-</body>
-<footer th:include="~{../static/html/footer.html}"></footer>
+		<script src="/js/cualculosLiquidacion.js"></script>
+	</body>
+	<footer th:include="~{../static/html/footer.html}"></footer>
 </html>

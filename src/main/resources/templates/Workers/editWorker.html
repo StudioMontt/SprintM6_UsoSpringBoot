@@ -1,123 +1,142 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head th:include="~{../static/html/head.html}"></head>
-<title>Actualizar Trabajador</title>
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Actualizar Trabajador</title>
 
-<body>
-<header>
-	<nav th:include="~{../static/html/nav-bar.html}"></nav>
-</header>
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
 
-<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	<h2>Actualizar Trabajador</h2>
-	<form
-			th:action="@{/trabajador/actualizar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
-			th:object="${trabajador}"
-			method="POST"
-	>
-		<div class="form-group mb-3">
-			<label for="run" class="form-label">Run:</label>
-			<input
-					type="number"
-					class="form-control"
-					id="run"
-					th:field="*{run}"
-					th:value="${trabajador.run}"
-					readonly
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="nombre" class="form-label">Nombre:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="nombre"
-					th:field="*{nombre}"
-					th:value="${trabajador.nombre}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="apellido1" class="form-label">Primer Apellido:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="apellido1"
-					th:field="*{apellido1}"
-					th:value="${trabajador.apellido1}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="apellido2" class="form-label">Segundo Apellido:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="apellido2"
-					th:field="*{apellido2}"
-					th:value="${trabajador.apellido2}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="empleadores">Empleadores:</label>
-			<select class="form-select" id="empleadores" name="empleadores" multiple aria-label="Empleador designado">
-				<option
-						th:each="empleador : ${listaEmpleadores}"
-						th:value="${empleador.idEmpleador}"
-						th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
-						th:selected="${idsEmpleadores.contains(empleador.idEmpleador)}"
-				>
-				</option>
-			</select>
-		</div>
-		<div class="mb-3">
-			<label for="email" class="form-label">Email:</label>
-			<input
-					type="email"
-					class="form-control"
-					id="email"
-					th:field="*{email}"
-					th:value="${trabajador.email}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="telefono" class="form-label">Teléfono:</label>
-			<input
-					type="number"
-					class="form-control"
-					id="telefono"
-					th:field="*{telefono}"
-					th:value="${trabajador.telefono}"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="idAFP">AFP</label>
-			<select class="form-select mb-3" id="idAFP" th:field="*{prevision.idPrevision}" aria-label="Previsión a la que pertenece">
-				<option th:value="${trabajador.prevision.getIdPrevision()}" selected>Seleccione la Instituición de Previsión del Trabajador</option>
-				<option
-						th:each="prevision : ${listaPrevision}"
-						th:value="${prevision.idPrevision}"
-						th:text="${prevision.descripcion}"
-				>|
-				</option>
-			</select>
-		</div>
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Actualizar Trabajador</h2>
+			<form
+				th:action="@{/trabajador/actualizar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}"
+				th:object="${trabajador}"
+				method="POST"
+			>
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">Run:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						th:field="*{run}"
+						th:value="${trabajador.run}"
+						readonly
+					/>
+				</div>
 				<div class="mb-3">
-                <label for="idSalud">Institución de Salud</label>
-                <select class="form-select mb-3" id="idSalud" th:field="*{salud.idSalud}" aria-label="Usuario al que corresponde">
-                    <option th:value="${trabajador.salud.getIdSalud()}" selected>Seleccione la Instituición de Salud del Trabajador</option>
-                    <option
-                            th:each="salud : ${listaSalud}"
-                            th:value="${salud.idSalud}"
-                            th:text="${salud.descripcion}"
-                    >
-                    </option>
-                </select>
-                </div>
-		<div class="text-center m-2">
-			<button type="submit" class="btn btn-warning m-2">Actualizar Trabajador</button>
-		</div>
-	</form>
-</section>
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="nombre"
+						th:field="*{nombre}"
+						th:value="${trabajador.nombre}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido1" class="form-label">Primer Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido1"
+						th:field="*{apellido1}"
+						th:value="${trabajador.apellido1}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido2" class="form-label">Segundo Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido2"
+						th:field="*{apellido2}"
+						th:value="${trabajador.apellido2}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="empleadores">Empleadores:</label>
+					<select
+						class="form-select"
+						id="empleadores"
+						name="empleadores"
+						multiple
+						aria-label="Empleador designado"
+					>
+						<option
+							th:each="empleador : ${listaEmpleadores}"
+							th:value="${empleador.idEmpleador}"
+							th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
+							th:selected="${idsEmpleadores.contains(empleador.idEmpleador)}"
+						></option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label>
+					<input
+						type="email"
+						class="form-control"
+						id="email"
+						th:field="*{email}"
+						th:value="${trabajador.email}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="telefono"
+						th:field="*{telefono}"
+						th:value="${trabajador.telefono}"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="idAFP">AFP</label>
+					<select
+						class="form-select mb-3"
+						id="idAFP"
+						th:field="*{prevision.idPrevision}"
+						aria-label="Previsión a la que pertenece"
+					>
+						<option th:value="${trabajador.prevision.getIdPrevision()}" selected>
+							Seleccione la Instituición de Previsión del Trabajador
+						</option>
+						<option
+							th:each="prevision : ${listaPrevision}"
+							th:value="${prevision.idPrevision}"
+							th:text="${prevision.descripcion}"
+						>
+							|
+						</option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="idSalud">Institución de Salud</label>
+					<select
+						class="form-select mb-3"
+						id="idSalud"
+						th:field="*{salud.idSalud}"
+						aria-label="Usuario al que corresponde"
+					>
+						<option th:value="${trabajador.salud.getIdSalud()}" selected>
+							Seleccione la Instituición de Salud del Trabajador
+						</option>
+						<option
+							th:each="salud : ${listaSalud}"
+							th:value="${salud.idSalud}"
+							th:text="${salud.descripcion}"
+						></option>
+					</select>
+				</div>
+				<div class="text-center m-2">
+					<button type="submit" class="btn btn-warning m-2">Actualizar Trabajador</button>
+				</div>
+			</form>
+		</section>
 
-<footer th:include="~{../static/html/footer.html}"></footer>
-</body>
+		<footer th:include="~{../static/html/footer.html}"></footer>
+	</body>
 </html>

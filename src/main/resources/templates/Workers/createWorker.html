@@ -1,123 +1,145 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head th:include="~{../static/html/head.html}"></head>
-<title>Crear Trabajador</title>
+	<head th:include="~{../static/html/head.html}"></head>
+	<title>Crear Trabajador</title>
 
-<body>
-<header>
-	<nav th:include="~{../static/html/nav-bar.html}"></nav>
-</header>
+	<body>
+		<header>
+			<nav th:include="~{../static/html/nav-bar.html}"></nav>
+		</header>
 
-<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	<h2>Crear Trabajador</h2>
-	<form th:action="@{/trabajador/crearTrabajador}" th:object="${trabajador}" method="POST">
-		<div class="form-group mb-3">
-			<label for="run" class="form-label">RUN:</label>
-			<input
-					type="number"
-					class="form-control"
-					id="run"
-					name="run"
-					required
-					placeholder="Sólo números, sin digito verificador"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="nombre" class="form-label">Nombre:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="nombre"
-					name="nombre"
-					required
-					placeholder="Indique su nombre"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="apellido1" class="form-label">Primer Apellido:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="apellido1"
-					name="apellido1"
-					required
-					placeholder="Ingrese su primer apellido"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="apellido2" class="form-label">Segundo Apellido:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="apellido2"
-					name="apellido2"
-					placeholder="Ingrese su segundo apellido (opcional)"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="empleadores">Empleadores:</label>
-			<select class="form-select" id="empleadores" name="empleadores" multiple aria-label="Asignar Empleadores">
-				<option
-						th:each="empleador : ${listaEmpleadores}"
-						th:value="${empleador.idEmpleador}"
-						th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
-				>
-				</option>
-			</select>
-		</div>
-
-		<div class="mb-3">
-			<label for="email" class="form-label">Email:</label>
-			<input
-					type="text"
-					class="form-control"
-					id="email"
-					name="email"
-					required
-					placeholder="email@servidor.cl"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="telefono" class="form-label">Teléfono:</label>
-			<input
-					type="number"
-					class="form-control"
-					id="telefono"
-					name="telefono"
-					required
-					placeholder="56987654321"
-			/>
-		</div>
-		<div class="mb-3">
-		<label for="idAFP">AFP</label>
-		<select class="form-select mb-3" id="idAFP" name="prevision" aria-label="AFP a la que pertenece">
-			<option th:value="${null}" selected>Seleccione la Instituición de Previsión del Trabajador</option>
-			<option
-					th:each="prevision : ${listaPrevision}"
-					th:value="${prevision.idPrevision}"
-					th:text="${prevision.descripcion}"
-			>|
-			</option>
-		</select>
-		</div>
-		<div class="mb-3">
-		<label for="idInstSalud">Institución de Salud</label>
-		<select class="form-select mb-3" id="idInstSalud" name="salud" aria-label="Inst. de Salud al que pertenece">
-			<option th:value="${null}" selected>Seleccione la Instituición de Salud del Trabajador</option>
-			<option
-					th:each="salud : ${listaSalud}"
-					th:value="${salud.idSalud}"
-					th:text="${salud.descripcion}"
+		<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<h2>Crear Trabajador</h2>
+			<form
+				th:action="@{/trabajador/crearTrabajador}"
+				th:object="${trabajador}"
+				method="POST"
 			>
-			</option>
-		</select>
-		</div>
-		<div class="text-center m-5">
-			<button type="submit" class="btn btn-primary">Crear Trabajador</button>
-		</div>
-	</form>
-</section>
+				<div class="form-group mb-3">
+					<label for="run" class="form-label">RUN:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="run"
+						name="run"
+						required
+						placeholder="Sólo números, sin digito verificador"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="nombre"
+						name="nombre"
+						required
+						placeholder="Indique su nombre"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido1" class="form-label">Primer Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido1"
+						name="apellido1"
+						required
+						placeholder="Ingrese su primer apellido"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="apellido2" class="form-label">Segundo Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="apellido2"
+						name="apellido2"
+						placeholder="Ingrese su segundo apellido (opcional)"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="empleadores">Empleadores:</label>
+					<select
+						class="form-select"
+						id="empleadores"
+						name="empleadores"
+						multiple
+						aria-label="Asignar Empleadores"
+					>
+						<option
+							th:each="empleador : ${listaEmpleadores}"
+							th:value="${empleador.idEmpleador}"
+							th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
+						></option>
+					</select>
+				</div>
 
-</body>
-<footer th:include="~{../static/html/footer.html}"></footer>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="email"
+						name="email"
+						required
+						placeholder="email@servidor.cl"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="telefono"
+						name="telefono"
+						required
+						placeholder="56987654321"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="idAFP">AFP</label>
+					<select
+						class="form-select mb-3"
+						id="idAFP"
+						name="prevision"
+						aria-label="AFP a la que pertenece"
+					>
+						<option th:value="${null}" selected>
+							Seleccione la Instituición de Previsión del Trabajador
+						</option>
+						<option
+							th:each="prevision : ${listaPrevision}"
+							th:value="${prevision.idPrevision}"
+							th:text="${prevision.descripcion}"
+						>
+							|
+						</option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="idInstSalud">Institución de Salud</label>
+					<select
+						class="form-select mb-3"
+						id="idInstSalud"
+						name="salud"
+						aria-label="Inst. de Salud al que pertenece"
+					>
+						<option th:value="${null}" selected>
+							Seleccione la Instituición de Salud del Trabajador
+						</option>
+						<option
+							th:each="salud : ${listaSalud}"
+							th:value="${salud.idSalud}"
+							th:text="${salud.descripcion}"
+						></option>
+					</select>
+				</div>
+				<div class="text-center m-5">
+					<button type="submit" class="btn btn-primary">Crear Trabajador</button>
+				</div>
+			</form>
+		</section>
+	</body>
+	<footer th:include="~{../static/html/footer.html}"></footer>
 </html>

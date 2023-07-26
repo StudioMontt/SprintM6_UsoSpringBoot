@@ -21,73 +21,67 @@ public class UsuarioController {
     @Autowired
     IPerfilService objPerfilService;
 
-    //MUESTRA EL LISTADO
+    // MUESTRA EL LISTADO
     @GetMapping
-    public String listarUsuarios(Model model){
+    public String listarUsuarios(Model model) {
         List<Usuario> listaUsuarios = objUsuarioService.listarUsuarios();
         model.addAttribute("usuario", listaUsuarios);
         return "Users/listUsers";
     }
 
-    //MUESTRA FORMULARIO DE GUARDAR
+    // MUESTRA FORMULARIO DE GUARDAR
     @GetMapping("/creacion")
-    public String mostrarFormularioCrearUsuario(Model model){
+    public String mostrarFormularioCrearUsuario(Model model) {
         Usuario usuario = new Usuario();
         model.addAttribute("usuario", usuario);
         return "Users/createUser";
     }
 
-    //GUARDA Y REDIRIGE AL LISTADO
+    // GUARDA Y REDIRIGE AL LISTADO
 
     @PostMapping("/crearUsuario")
-    public String crearUsuario(@ModelAttribute Usuario usuarioCrear){
+    public String crearUsuario(@ModelAttribute Usuario usuarioCrear) {
         usuarioCrear.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuarioCrear);
         return "redirect:/usuario";
     }
 
-    //MUESTRA FORMULARIO DE REGISTRAR
+    // MUESTRA FORMULARIO DE REGISTRAR
     @GetMapping("/registro")
-    public String mostrarFormularioRegistroUsuario(Model model){
+    public String mostrarFormularioRegistroUsuario(Model model) {
         Usuario usuario = new Usuario();
         model.addAttribute("usuario", usuario);
         return "registration";
     }
 
-    //REGISTRA Y REDIRIGE A LA BIENVENIDA
+    // REGISTRA Y REDIRIGE A LA BIENVENIDA
     @PostMapping("/registroUsuario")
-    public String registrarUsuario(@ModelAttribute Usuario usuarioReg){
+    public String registrarUsuario(@ModelAttribute Usuario usuarioReg) {
         usuarioReg.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuarioReg);
         return "redirect:/welcome";
     }
-    //MUESTRA FORMULARIO DE EDITAR
+
+    // MUESTRA FORMULARIO DE EDITAR
     @GetMapping("/editar/{idUsuario}")
-    public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model){
+    public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model) {
         Usuario usuarioParaEditar = objUsuarioService.buscarUsuarioPorId(idUsuario);
         model.addAttribute("usuario", usuarioParaEditar);
         return "Users/editUser";
     }
 
-    //ACTUALIZAR Y REDIRIGE A LISTADO
+    // ACTUALIZAR Y REDIRIGE A LISTADO
     @PostMapping("/actualizar/{idUsuario}")
-    public String actualizarUsuario(@ModelAttribute Usuario usuarioActualizar, @PathVariable int idUsuario){
+    public String actualizarUsuario(@ModelAttribute Usuario usuarioActualizar, @PathVariable int idUsuario) {
         objUsuarioService.actualizarUsuario(usuarioActualizar, idUsuario);
         return "redirect:/usuario";
     }
 
-
-    //ELIMINAR Y REDIRIGIR A LISTADO
+    // ELIMINAR Y REDIRIGIR A LISTADO
     @PostMapping("/eliminar/{idUsuario}")
     public String eliminarUsuario(@PathVariable int idUsuario, RedirectAttributes redirectAttributes) {
 
         objUsuarioService.eliminarUsuario(idUsuario);
-/*
-
-        redirectAttributes.addFlashAttribute("swalTitle", "¡Eliminado!");
-        redirectAttributes.addFlashAttribute("swalText", "Los datos fueron eliminados con éxito.");
-        redirectAttributes.addFlashAttribute("swalType", "success");
-*/
         return "redirect:/usuario";
     }
 }

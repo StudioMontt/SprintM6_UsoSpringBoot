@@ -17,8 +17,8 @@ public class UsuarioRestController {
     @Autowired
     IPerfilService objPerfilService;
 
-    @PostMapping ("/crearUsuario")
-    public Usuario crearUsuario(@RequestBody Usuario usuario){
+    @PostMapping("/crearUsuario")
+    public Usuario crearUsuario(@RequestBody Usuario usuario) {
         Usuario usuarioNuevo = new Usuario();
         usuarioNuevo.setRun(usuario.getRun());
         usuarioNuevo.setNombre(usuario.getNombre());
@@ -32,8 +32,8 @@ public class UsuarioRestController {
         return objUsuarioService.crearUsuario(usuarioNuevo);
     }
 
-    @PostMapping ("/registroUsuario")
-    public Usuario registroUsuario(@RequestBody Usuario usuario){
+    @PostMapping("/registroUsuario")
+    public Usuario registroUsuario(@RequestBody Usuario usuario) {
         Usuario usuarioReg = new Usuario();
         usuarioReg.setRun(usuario.getRun());
         usuarioReg.setNombre(usuario.getNombre());
@@ -44,18 +44,19 @@ public class UsuarioRestController {
         usuarioReg.setFechaCreacion(LocalDateTime.now());
         return objUsuarioService.crearUsuario(usuarioReg);
     }
+
     @GetMapping("/{idUsuario}")
-    public Usuario buscarUsuarioPorId(@PathVariable int idUsuario){
+    public Usuario buscarUsuarioPorId(@PathVariable int idUsuario) {
         return objUsuarioService.buscarUsuarioPorId(idUsuario);
     }
 
     @GetMapping
-    public List<Usuario> listarUsuarios(){
+    public List<Usuario> listarUsuarios() {
         return objUsuarioService.listarUsuarios();
     }
 
     @PutMapping("/{idUsuario}")
-    public Usuario actualizarUsuario(@RequestBody Usuario usuarioActualizar, @PathVariable int idUsuario){
+    public Usuario actualizarUsuario(@RequestBody Usuario usuarioActualizar, @PathVariable int idUsuario) {
         Usuario usuario = objUsuarioService.buscarUsuarioPorId(idUsuario);
         usuario.setRun(usuarioActualizar.getRun());
         usuario.setNombre(usuarioActualizar.getNombre());
@@ -69,7 +70,7 @@ public class UsuarioRestController {
     }
 
     @DeleteMapping("/{idUsuario}")
-    public void eliminarUsuario(@PathVariable int idUsuario){
+    public void eliminarUsuario(@PathVariable int idUsuario) {
         objUsuarioService.eliminarUsuario(idUsuario);
     }
 }
