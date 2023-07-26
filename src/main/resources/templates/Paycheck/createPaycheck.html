@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:include="~{../static/html/head.html}"></head>
+<title>Crear Liquidación</title>
+
+<body>
+<header>
+	<nav th:include="~{../static/html/nav-bar.html}"></nav>
+</header>
+
+<section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+	<h2>Crear Liquidación</h2>
+	<form th:action="@{/liquidacion/crearLiquidacion}" th:object="${liquidacion}" method="POST">
+		<div class="form-group mb-3">
+			<label for="mes" class="form-label">Mes a Liquidar:</label>
+			<input
+					type="date"
+					class="form-control"
+					id="mes"
+					name="periodo"
+					required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="idTrabajador">Trabajador</label>
+			<select class="form-select mb-3" id="idTrabajador" name="trabajador" aria-label="Designar a un trabajador">
+				<option th:value="${null}" selected>Seleccione el Trabajador</option>
+				<option
+						th:each="trabajador : ${trabajadores}"
+						th:value="${trabajador.idTrabajador}"
+						th:text="${trabajador.nombre} + ' ' + ${trabajador.apellido1}"
+				>
+				</option>
+			</select>
+		</div>
+		<div class="form-group mb-3">
+			<label for="imponible" class="form-label">Sueldo Imponible:</label>
+			<input
+					type="number"
+					class="form-control"
+					id="imponible"
+					name="sueldoImponible"
+					required
+					placeholder="Sólo números, sin dígito verificador"
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="idAfp">AFP</label>
+			<select class="form-select mb-3" id="idAfp" name="prevision" aria-label="AFP al que pertenece">
+				<option th:value="${null}" selected>Seleccione la Institución de Previsión de la Liquidación</option>
+				<option
+						th:each="prevision : ${listaAFP}"
+						th:value="${prevision.idPrevision}"
+						th:text="${prevision.descripcion}"
+						th:data-afp="${prevision.porcDctoPrev}"
+				>|
+				</option>
+			</select>
+		</div>
+		<div class="form-group mb-3">
+			<label for="montoAfp" class="form-label">Cotización Legal AFP:</label>
+			<input type="number" class="form-control" id="montoAfp" name="dctoPrevision" readonly>
+		</div>
+			<div class="mb-3">
+                <label for="idSalud">Institución de Salud</label>
+                <select class="form-select mb-3" id="idSalud" name="salud" aria-label="Institución de Salud al que pertenece">
+                    <option th:value="${null}" selected>Seleccione la Instituición de Salud del Trabajador</option>
+                    <option
+                            th:each="salud : ${listaSalud}"
+                            th:value="${salud.idSalud}"
+                            th:text="${salud.descripcion}"
+                            th:data-salud="${salud.porcDctoSalud}"
+                    >
+                    </option>
+                </select>
+            </div>
+		<div class="form-group mb-3">
+			<label for="montoSalud" class="form-label">Cotización Legal Salud:</label>
+			<input type="number" class="form-control" id="montoSalud" name="dctoSalud" readonly>
+		</div>
+
+		<div class="form-group mb-3">
+			<label for="ttalDctos" class="form-label">Total Descuentos Legales:</label>
+			<input type="number" class="form-control" id="ttalDctos" name="totalDescuento" readonly>
+		</div>
+		<div class="form-group mb-3">
+			<label for="haberes" class="form-label">Total Haberes:</label>
+			<input type="number" class="form-control" id="haberes" name="totalHaberes" readonly>
+		</div>
+		<div class="mb-3">
+							  <label for="anticipo" class="form-label">Anticipos:</label>
+							  <input
+                                       type="number"
+                                       class="form-control"
+                                       id="anticipo"
+                                       name="anticipo"
+                                       placeholder="Valor de los anticipos solicitados por el trabajador"
+									   th:attr="value=${0}"
+							  />
+						  </div>
+
+		<div class="form-group mb-3">
+			<label for="liquido" class="form-label">Sueldo Líquido a Pagar:</label>
+			<input type="number" class="form-control" id="liquido" name="sueldoLiquido" readonly>
+		</div>
+
+		<div class="text-center m-5">
+			<button type="submit" class="btn btn-primary">Crear Liquidación</button>
+		</div>
+	</form>
+</section>
+
+<script src="/js/cualculosLiquidacion.js"></script>
+</body>
+
+<footer th:include="~{../static/html/footer.html}"></footer>
+</html>

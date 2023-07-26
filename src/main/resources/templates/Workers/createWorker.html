@@ -56,7 +56,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="empleadores">Empleadores:</label>
-			<select class="form-select" id="empleadores" name="empleadores" multiple aria-label="Designar a un Empleador">
+			<select class="form-select" id="empleadores" name="empleadores" multiple aria-label="Asignar Empleadores">
 				<option
 						th:each="empleador : ${listaEmpleadores}"
 						th:value="${empleador.idEmpleador}"
@@ -90,7 +90,7 @@
 		</div>
 		<div class="mb-3">
 		<label for="idAFP">AFP</label>
-		<select class="form-select mb-3" id="idAFP" name="prevision" aria-label="Previsión a la que pertenece">
+		<select class="form-select mb-3" id="idAFP" name="prevision" aria-label="AFP a la que pertenece">
 			<option th:value="${null}" selected>Seleccione la Instituición de Previsión del Trabajador</option>
 			<option
 					th:each="prevision : ${listaPrevision}"
@@ -102,7 +102,7 @@
 		</div>
 		<div class="mb-3">
 		<label for="idInstSalud">Institución de Salud</label>
-		<select class="form-select mb-3" id="idInstSalud" name="salud" aria-label="Usuario al que corresponde">
+		<select class="form-select mb-3" id="idInstSalud" name="salud" aria-label="Inst. de Salud al que pertenece">
 			<option th:value="${null}" selected>Seleccione la Instituición de Salud del Trabajador</option>
 			<option
 					th:each="salud : ${listaSalud}"

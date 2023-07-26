@@ -56,18 +56,6 @@
 					th:value="${trabajador.apellido2}"
 			/>
 		</div>
-<!--		<div class="mb-3">
-			<label for="empleador">Empleador</label>
-			<select class="form-select mb-3" id="empleador" th:field="*{null}" aria-label="Empleador designado">
-				<option th:value="${null}" selected>Seleccione un Empleador</option>
-				<option
-						th:each="empleador : ${listaEmpleadores}"
-						th:value="${empleador.idEmpleador}"
-						th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
-				>
-				</option>
-			</select>
-		</div>-->
 		<div class="mb-3">
 			<label for="empleadores">Empleadores:</label>
 			<select class="form-select" id="empleadores" name="empleadores" multiple aria-label="Empleador designado">
@@ -80,7 +68,6 @@
 				</option>
 			</select>
 		</div>
-
 		<div class="mb-3">
 			<label for="email" class="form-label">Email:</label>
 			<input

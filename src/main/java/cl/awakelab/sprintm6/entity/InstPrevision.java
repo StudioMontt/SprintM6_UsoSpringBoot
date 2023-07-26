@@ -1,5 +1,6 @@
 package cl.awakelab.sprintm6.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -19,9 +20,11 @@ public class InstPrevision {
     @Column(name = "porc_dcto", nullable = false)
     private float porcDctoPrev;
 
-    @OneToMany(mappedBy = "prevision")
+    @JsonIgnore
+    @OneToMany(mappedBy = "prevision", fetch = FetchType.LAZY)
     private List<Trabajador> listTrabajadores;
 
-    @OneToMany(mappedBy = "prevision")
+    @JsonIgnore
+    @OneToMany(mappedBy = "prevision", fetch = FetchType.LAZY)
     private List<Liquidacion> listLiquidaciones;
 }

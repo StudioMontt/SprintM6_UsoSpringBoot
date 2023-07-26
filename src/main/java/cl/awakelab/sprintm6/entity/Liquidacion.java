@@ -14,7 +14,7 @@ public class Liquidacion {
     private int idLiquidacion;
 
     @JoinColumn(name = "id_trabajador", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne
     private Trabajador trabajador;
 
     @Column(nullable = false)
@@ -27,14 +27,14 @@ public class Liquidacion {
     private int sueldoLiquido;
 
     @JoinColumn(name = "id_inst_salud", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne
     private InstSalud salud;
 
     @Column(name = "monto_inst_salud", nullable = false)
     private int dctoSalud;
 
     @JoinColumn(name = "id_inst_prevision", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne
     private InstPrevision prevision;
 
     @Column(name = "monto_inst_prevision", nullable = false)
@@ -46,6 +46,6 @@ public class Liquidacion {
     @Column(name = "total_haberes", nullable = false)
     private int totalHaberes;
 
-    @Column
+    @Column(nullable = false)
     private int anticipo;
 }
