@@ -66,8 +66,10 @@ public class LiquidacionController {
     public String mostrarFormularioEditarLiquidacion(@PathVariable int idLiquidacion, Model model) {
         Liquidacion liquidacionEditar = objLiquidacionService.buscarLiquidacionPorId(idLiquidacion);
         model.addAttribute("liquidacion", liquidacionEditar);
+        List<Trabajador> listaTrabajador = objTrabajadorService.listarTrabajador();
+        model.addAttribute("trabajadores", listaTrabajador);
         List<InstPrevision> listaPrevision = objPrevisionService.listarInstPrevision();
-        model.addAttribute("listaPrevision", listaPrevision);
+        model.addAttribute("listaAFP", listaPrevision);
         List<InstSalud> listaSalud = objSaludService.listarInstSalud();
         model.addAttribute("listaSalud", listaSalud);
         return "Paycheck/editPaycheck";

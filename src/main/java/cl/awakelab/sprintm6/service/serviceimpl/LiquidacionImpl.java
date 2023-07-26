@@ -35,17 +35,17 @@ public class LiquidacionImpl implements ILiquidacionService {
     @Override
     public Liquidacion actualizarLiquidacion(Liquidacion liquidacionActualizar, int idLiquidacion) {
         Liquidacion liquidacion = objLiquidacionRepo.findById(idLiquidacion).orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
-        liquidacion.setTrabajador(liquidacionActualizar.getTrabajador());
         liquidacion.setPeriodo(liquidacionActualizar.getPeriodo());
+        liquidacion.setTrabajador(liquidacionActualizar.getTrabajador());
         liquidacion.setSueldoImponible(liquidacionActualizar.getSueldoImponible());
-        liquidacion.setSueldoLiquido(liquidacionActualizar.getSueldoLiquido());
-        liquidacion.setSalud(liquidacionActualizar.getSalud());
-        liquidacion.setDctoSalud(liquidacionActualizar.getDctoSalud());
         liquidacion.setPrevision(liquidacionActualizar.getPrevision());
         liquidacion.setDctoPrevision(liquidacionActualizar.getDctoPrevision());
+        liquidacion.setSalud(liquidacionActualizar.getSalud());
+        liquidacion.setDctoSalud(liquidacionActualizar.getDctoSalud());
         liquidacion.setTotalDescuento(liquidacionActualizar.getTotalDescuento());
         liquidacion.setTotalHaberes(liquidacionActualizar.getTotalHaberes());
         liquidacion.setAnticipo(liquidacionActualizar.getAnticipo());
+        liquidacion.setSueldoLiquido(liquidacionActualizar.getSueldoLiquido());
         return objLiquidacionRepo.save(liquidacion);
     }
 

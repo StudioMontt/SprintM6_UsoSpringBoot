@@ -11,6 +11,7 @@
 <section class="container row col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 	<h2>Crear Liquidación</h2>
 	<form th:action="@{/liquidacion/crearLiquidacion}" th:object="${liquidacion}" method="POST">
+
 		<div class="form-group mb-3">
 			<label for="mes" class="form-label">Mes a Liquidar:</label>
 			<input
