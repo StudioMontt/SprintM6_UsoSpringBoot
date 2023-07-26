@@ -18,8 +18,7 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 		<tr>
-			<th>ID</th>
-			<th>ID Trabajador</th>
+			<th>RUN Trabajador</th>
 			<th>Nombre Trabajador</th>
 			<th>Apellido Trabajador</th>
 			<th>Sueldo Imponible</th>
@@ -29,9 +28,9 @@
 		</thead>
 		<tbody>
 		<tr th:each="liquidacion: ${liquidaciones}">
-			<td th:text="${liquidacion.trabajador}"></td>
-			<td th:text="${liquidacion.trabajador.getNombre()}"></td>
-			<td th:text="${liquidacion.trabajador.getApellido1}"></td>
+			<td th:text="${liquidacion.trabajador.run}"></td>
+			<td th:text="${liquidacion.trabajador.nombre}"></td>
+			<td th:text="${liquidacion.trabajador.apellido1}"></td>
 			<td th:text="${liquidacion.sueldoImponible}"></td>
 			<td th:text="${liquidacion.sueldoLiquido}"></td>
 			<td class="align-middle d-flex">

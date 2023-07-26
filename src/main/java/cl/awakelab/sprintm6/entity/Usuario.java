@@ -3,6 +3,7 @@ package cl.awakelab.sprintm6.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,7 +34,7 @@ public class Usuario {
 
     @JoinColumn(name = "id_perfil")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JsonIgnore
+    @ToString.Exclude
     private Perfil perfil;
 
     @Column(length = 100, nullable = false)
@@ -46,5 +47,6 @@ public class Usuario {
     private long telefono;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Empleador> listaEmpleadores;
 }

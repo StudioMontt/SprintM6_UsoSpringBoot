@@ -2,6 +2,7 @@ package cl.awakelab.sprintm6.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDate;
 @Data
@@ -15,6 +16,7 @@ public class Liquidacion {
 
     @JoinColumn(name = "id_trabajador", nullable = false)
     @ManyToOne
+    @ToString.Exclude
     private Trabajador trabajador;
 
     @Column(nullable = false)
@@ -28,6 +30,7 @@ public class Liquidacion {
 
     @JoinColumn(name = "id_inst_salud", nullable = false)
     @ManyToOne
+    @ToString.Exclude
     private InstSalud salud;
 
     @Column(name = "monto_inst_salud", nullable = false)
@@ -35,6 +38,7 @@ public class Liquidacion {
 
     @JoinColumn(name = "id_inst_prevision", nullable = false)
     @ManyToOne
+    @ToString.Exclude
     private InstPrevision prevision;
 
     @Column(name = "monto_inst_prevision", nullable = false)

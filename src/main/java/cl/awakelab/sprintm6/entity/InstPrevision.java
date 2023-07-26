@@ -3,6 +3,8 @@ package cl.awakelab.sprintm6.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import java.util.List;
 
 @Data
@@ -21,10 +23,12 @@ public class InstPrevision {
     private float porcDctoPrev;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "prevision", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prevision")
+    @ToString.Exclude
     private List<Trabajador> listTrabajadores;
 
     @JsonIgnore
+    @ToString.Exclude
     @OneToMany(mappedBy = "prevision", fetch = FetchType.LAZY)
     private List<Liquidacion> listLiquidaciones;
 }

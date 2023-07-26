@@ -3,6 +3,7 @@ package cl.awakelab.sprintm6.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Perfil {
 //    public boolean getEstado() {
 //        return estado;
 //    }
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL)
     private List<Usuario> listaUsuarios;
 }

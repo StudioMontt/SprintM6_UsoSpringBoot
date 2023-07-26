@@ -33,6 +33,12 @@ public class LiquidacionController {
     public String listarLiquidaciones(Model model) {
         List<Liquidacion> listaLiquidaciones = objLiquidacionService.listarLiquidacion();
         model.addAttribute("liquidaciones", listaLiquidaciones);
+        List<Trabajador> listaTrabajadores = objTrabajadorService.listarTrabajador();
+        model.addAttribute("trabajadores", listaTrabajadores);
+        List<InstPrevision> listaPrevision = objPrevisionService.listarInstPrevision();
+        model.addAttribute("listaAFP", listaPrevision);
+        List<InstSalud> listaSalud = objSaludService.listarInstSalud();
+        model.addAttribute("listaSalud", listaSalud);
         return "Paycheck/listPaycheck";
     }
 

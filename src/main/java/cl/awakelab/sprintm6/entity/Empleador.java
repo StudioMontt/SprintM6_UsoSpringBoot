@@ -2,6 +2,7 @@ package cl.awakelab.sprintm6.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -40,5 +41,6 @@ public class Empleador {
     private long telefono;
 
     @ManyToMany(mappedBy = "listaEmpleadores")
+    @ToString.Exclude
     private List<Trabajador> listaTrabajadores;
 }

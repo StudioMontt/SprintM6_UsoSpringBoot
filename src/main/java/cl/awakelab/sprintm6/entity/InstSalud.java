@@ -2,6 +2,7 @@ package cl.awakelab.sprintm6.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -21,9 +22,11 @@ public class InstSalud {
     private float porcDctoSalud;
 
     @OneToMany(mappedBy = "salud")
+    @ToString.Exclude
     private List<Trabajador> listTrabajadores;
 
     @OneToMany(mappedBy = "salud")
+    @ToString.Exclude
     private List<Liquidacion> listLiquidaciones;
 
 }
